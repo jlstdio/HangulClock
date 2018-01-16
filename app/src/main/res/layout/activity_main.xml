@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    //생상 변경
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <TextView
+            android:id="@+id/colortitle"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="색상 설정"/>
+
+        <CheckBox
+            android:text="Black모드 켜기"
+            android:id="@+id/mode"
+            android:layout_below="@+id/colortitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            />
+    </RelativeLayout>
+
+
+    //문구 설정
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <TextView
+            android:id="@+id/textViewing"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="문구 설정"/>
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@+id/textViewing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="원하시는 문구를 써주세요"
+            android:id="@+id/editText1"/>
+
+    </RelativeLayout>
+
+    //적용 단추
+    <RelativeLayout
+        android:layout_weight="0.3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="적용하기"
+            android:id="@+id/button1"
+            />
+
+    </RelativeLayout>
+
+    //개발자
+    <RelativeLayout
+        android:gravity="center_horizontal"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <TextView
+            android:id="@+id/dev"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="개발 정보"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@+id/dev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LEE JOON HEE"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Copyright © 2018 Lee Joon Hee(neo81389). Released under the GNU General Public License v3."/>
+
+    </RelativeLayout>
+</LinearLayout>
