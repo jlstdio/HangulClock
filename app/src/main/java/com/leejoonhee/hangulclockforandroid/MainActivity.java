@@ -25,33 +25,33 @@ public class MainActivity extends AppCompatActivity{
 
         words.setText(sets.getString("title", ""));
 
-        if(sets.getInt("color", 0) == 2){
-            mode.setChecked(true);
+        final int prefColor = sets.getInt("color", NewAppWidget.PREF_COLOR_DEFAULT);
+        switch (prefColor) {
+            case NewAppWidget.PREF_COLOR_WHITE:
+                mode.setChecked(false);
+                break;
+            case NewAppWidget.PREF_COLOR_BLACK:
+                mode.setChecked(true);
+                break;
+            default:
+                break;
         }
-        if (sets.getInt("color", 0) == 1){
-            mode.setChecked(false);
-        }
+
         RemoteViews views = new RemoteViews(getPackageName(), R.layout.new_app_widget);//new_app_widget의 objects들의 값을 변경하기위함입니다
 
         //저장 버튼을 눌렀을 시에 작동합니다
         findViewById(R.id.button1).setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
-                        SharedPreferences.Editor editor1 = sets.edit();
-                        editor1.putString("title", words.getText().toString()); //edittext에서 얻어온 값을 title로 저장합니다.
-                        editor1.commit();
+                        SharedPreferences.Editor editor = sets.edit();
+                        editor.putString("title", words.getText().toString()); //edittext에서 얻어온 값을 title로 저장합니다.
 
-                        if(mode.isChecked()){
-                            SharedPreferences.Editor editor = sets.edit();
-                            editor.putInt("color", 2); //ID가"color"인 sharedpreference에 정수 "2"를 저장합니다
-                            editor.commit();
+                        if (mode.isChecked()) {
+                            editor.putInt("color", NewAppWidget.PREF_COLOR_BLACK); //ID가"color"인 sharedpreference에 정수 "2"를 저장합니다
+                        } else{
+                            editor.putInt("color", NewAppWidget.PREF_COLOR_WHITE); //ID가"color"인 sharedpreference에 정수 "1"를 저장합니다
                         }
-                        else{
-                            SharedPreferences.Editor editor = sets.edit();
-                            editor.putInt("color", 1); //ID가"color"인 sharedpreference에 정수 "1"를 저장합니다
-                            editor.commit();
-                        }
-
+                        editor.apply();
                         Toast.makeText(getApplicationContext(), "적용되었습니다", Toast.LENGTH_SHORT).show(); //저장 버튼 클릭시 적용됨을 알리기위해 메세지를 띄웁니다
 
                     }

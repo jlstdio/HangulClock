@@ -19,6 +19,9 @@ import java.util.Calendar;
  * Implementation of App Widget functionality.
  */
 public class NewAppWidget extends AppWidgetProvider {
+    static final int PREF_COLOR_WHITE = 1;
+    static final int PREF_COLOR_BLACK = 2;
+    static final int PREF_COLOR_DEFAULT = PREF_COLOR_WHITE;
 
     private static final int WIDGET_UPDATE_INTERVAL = 1000; //초당 한번씩 update를 합니다
 
@@ -68,22 +71,26 @@ public class NewAppWidget extends AppWidgetProvider {
 
             Calendar now = Calendar.getInstance(); //calendar에서 현재 시각을 받아옵니다
 
-            int hour = now.get(Calendar.HOUR_OF_DAY); //"시"는 hour에 저장합니다
+            int hour = now.get(Calendar.HOUR_OF_DAY) % 12; //"시"는 hour에 저장합니다
 
             int min = now.get(Calendar.MINUTE); //"분"은 min에 저장합니다
 
             views.setTextViewText(R.id.textView1, sets.getString("title", "title"));//Onupdate에서 받은 sentence의 값을 new_app_widget의 textview1의 ID를 가진 object에 올려줍니다
 
-            //textcolorselcetion이 1이라면..
-            if(sets.getInt("color", 0) == 1){
-                views.setTextColor(R.id.textView1, Color.WHITE);
-                views.setImageViewResource(R.id.board, R.drawable.hangulclock_board_white);
-            }
-
-            //textcolorselcetion이 2라면..
-            if(sets.getInt("color", 0) == 2){
-                views.setTextColor(R.id.textView1, Color.BLACK);
-                views.setImageViewResource(R.id.board, R.drawable.hangulclock_board_black);
+            final int prefColor = sets.getInt("color", PREF_COLOR_DEFAULT);
+            int textColor = -1;
+            switch (prefColor) {
+                case PREF_COLOR_WHITE:
+                    //textcolorselcetion이 1이라면..
+                    views.setTextColor(R.id.textView1, Color.WHITE);
+                    views.setImageViewResource(R.id.board, R.drawable.hangulclock_board_white);
+                    textColor = Color.WHITE;
+                    break;
+                case PREF_COLOR_BLACK:
+                    //textcolorselcetion이 2라면..
+                    views.setTextColor(R.id.textView1, Color.BLACK);
+                    views.setImageViewResource(R.id.board, R.drawable.hangulclock_board_black);
+                    textColor = Color.BLACK;
             }
 
             views.setTextColor(R.id.aa, Color.argb(40, 67, 70, 90));
@@ -105,197 +112,64 @@ public class NewAppWidget extends AppWidgetProvider {
             views.setTextColor(R.id.fb, Color.argb(40, 67, 70, 90));
             views.setTextColor(R.id.fc, Color.argb(40, 67, 70, 90));
 
-            if(hour == 1 || hour == 13){
-
-                if(sets.getInt("color", 0) == 1)//white
-                {
-                    views.setTextColor(R.id.aa, Color.WHITE);
-                    views.setTextColor(R.id.fc, Color.WHITE);
-                }
-                if(sets.getInt("color", 0) == 2)//black
-                {
-                    views.setTextColor(R.id.aa, Color.BLACK);
-                    views.setTextColor(R.id.fc, Color.BLACK);
-                }
-            }
-
-            if(hour == 2 || hour == 14){
-
-                if(sets.getInt("color", 0) == 1)//white
-                {
-                    views.setTextColor(R.id.ba, Color.WHITE);
-                    views.setTextColor(R.id.fc, Color.WHITE);
-                }
-                if(sets.getInt("color", 0) == 2)//black
-                {
-                    views.setTextColor(R.id.ba, Color.BLACK);
-                    views.setTextColor(R.id.fc, Color.BLACK);
-
-                }
-            }
-
-            if(hour == 3 || hour == 15){
-
-                if(sets.getInt("color", 0) == 1)//white
-                {
-                    views.setTextColor(R.id.ca, Color.WHITE);
-                    views.setTextColor(R.id.fc, Color.WHITE);
-                }
-                if(sets.getInt("color", 0) == 2)//black
-                {
-                    views.setTextColor(R.id.ca, Color.BLACK);
-                    views.setTextColor(R.id.fc, Color.BLACK);
-
-                }
-            }
-
-            if(hour == 4 || hour == 16){
-
-                if(sets.getInt("color", 0) == 1)//white
-                {
-                    views.setTextColor(R.id.da, Color.WHITE);
-                    views.setTextColor(R.id.fc, Color.WHITE);
-                }
-                if(sets.getInt("color", 0) == 2)//black
-                {
-                    views.setTextColor(R.id.da, Color.BLACK);
-                    views.setTextColor(R.id.fc, Color.BLACK);
-
-                }
-            }
-
-            if(hour == 5 || hour == 17){
-
-                if(sets.getInt("color", 0) == 1)//white
-                {
-                    views.setTextColor(R.id.ea, Color.WHITE);
-                    views.setTextColor(R.id.fa, Color.WHITE);
-                    views.setTextColor(R.id.fc, Color.WHITE);
-                }
-                if(sets.getInt("color", 0) == 2)//black
-                {
-                    views.setTextColor(R.id.ea, Color.BLACK);
-                    views.setTextColor(R.id.fa, Color.BLACK);
-                    views.setTextColor(R.id.fc, Color.BLACK);
-
-                }
-            }
-
-            if(hour == 6 || hour == 18){
-
-                if(sets.getInt("color", 0) == 1)//white
-                {
-                    views.setTextColor(R.id.ab, Color.WHITE);
-                    views.setTextColor(R.id.bb, Color.WHITE);
-                    views.setTextColor(R.id.fc, Color.WHITE);
-                }
-                if(sets.getInt("color", 0) == 2)//black
-                {
-                    views.setTextColor(R.id.ab, Color.BLACK);
-                    views.setTextColor(R.id.bb, Color.BLACK);
-                    views.setTextColor(R.id.fc, Color.BLACK);
-
-                }
-            }
-
-            if(hour == 7 || hour == 19){
-
-                if(sets.getInt("color", 0) == 1)//white
-                {
-                    views.setTextColor(R.id.cb, Color.WHITE);
-                    views.setTextColor(R.id.db, Color.WHITE);
-                    views.setTextColor(R.id.fc, Color.WHITE);
-                }
-                if(sets.getInt("color", 0) == 2)//black
-                {
-                    views.setTextColor(R.id.cb, Color.BLACK);
-                    views.setTextColor(R.id.db, Color.BLACK);
-                    views.setTextColor(R.id.fc, Color.BLACK);
-
-                }
-            }
-
-            if(hour == 8 || hour == 20){
-
-                if(sets.getInt("color", 0) == 1)//white
-                {
-                    views.setTextColor(R.id.eb, Color.WHITE);
-                    views.setTextColor(R.id.fb, Color.WHITE);
-                    views.setTextColor(R.id.fc, Color.WHITE);
-                }
-                if(sets.getInt("color", 0) == 2)//black
-                {
-                    views.setTextColor(R.id.eb, Color.BLACK);
-                    views.setTextColor(R.id.fb, Color.BLACK);
-                    views.setTextColor(R.id.fc, Color.BLACK);
-
-                }
-            }
-
-            if(hour == 9 || hour == 21){
-
-                if(sets.getInt("color", 0) == 1)//white
-                {
-                    views.setTextColor(R.id.ac, Color.WHITE);
-                    views.setTextColor(R.id.bc, Color.WHITE);
-                    views.setTextColor(R.id.fc, Color.WHITE);
-                }
-                if(sets.getInt("color", 0) == 2)//black
-                {
-                    views.setTextColor(R.id.ac, Color.BLACK);
-                    views.setTextColor(R.id.bc, Color.BLACK);
-                    views.setTextColor(R.id.fc, Color.BLACK);
-
-                }
-            }
-
-            if(hour == 10 || hour == 22){
-
-                if(sets.getInt("color", 0) == 1)//white
-                {
-                    views.setTextColor(R.id.cc, Color.WHITE);
-                    views.setTextColor(R.id.fc, Color.WHITE);
-                }
-                if(sets.getInt("color", 0) == 2)//black
-                {
-                    views.setTextColor(R.id.cc, Color.BLACK);
-                    views.setTextColor(R.id.fc, Color.BLACK);
-
-                }
-            }
-
-            if(hour == 11 || hour == 23){
-
-                if(sets.getInt("color", 0) == 1)//white
-                {
-                    views.setTextColor(R.id.cc, Color.WHITE);
-                    views.setTextColor(R.id.dc, Color.WHITE);
-                    views.setTextColor(R.id.fc, Color.WHITE);
-                }
-                if(sets.getInt("color", 0) == 2)//black
-                {
-                    views.setTextColor(R.id.cc, Color.BLACK);
-                    views.setTextColor(R.id.dc, Color.BLACK);
-                    views.setTextColor(R.id.fc, Color.BLACK);
-
-                }
-            }
-
-            if(hour == 12 || hour == 24 || hour == 0){
-
-                if(sets.getInt("color", 0) == 1)//white
-                {
-                    views.setTextColor(R.id.cc, Color.WHITE);
-                    views.setTextColor(R.id.ec, Color.WHITE);
-                    views.setTextColor(R.id.fc, Color.WHITE);
-                }
-                if(sets.getInt("color", 0) == 2)//black
-                {
-                    views.setTextColor(R.id.cc, Color.BLACK);
-                    views.setTextColor(R.id.ec, Color.BLACK);
-                    views.setTextColor(R.id.fc, Color.BLACK);
-
-                }
+            switch (hour) {
+                case 1:
+                    views.setTextColor(R.id.aa, textColor);
+                    views.setTextColor(R.id.fc, textColor);
+                    break;
+                case 2:
+                    views.setTextColor(R.id.ba, textColor);
+                    views.setTextColor(R.id.fc, textColor);
+                    break;
+                case 3:
+                    views.setTextColor(R.id.ca, textColor);
+                    views.setTextColor(R.id.fc, textColor);
+                    break;
+                case 4:
+                    views.setTextColor(R.id.da, textColor);
+                    views.setTextColor(R.id.fc, textColor);
+                    break;
+                case 5:
+                    views.setTextColor(R.id.ea, textColor);
+                    views.setTextColor(R.id.fa, textColor);
+                    views.setTextColor(R.id.fc, textColor);
+                    break;
+                case 6:
+                    views.setTextColor(R.id.ab, textColor);
+                    views.setTextColor(R.id.bb, textColor);
+                    views.setTextColor(R.id.fc, textColor);
+                    break;
+                case 7:
+                    views.setTextColor(R.id.cb, textColor);
+                    views.setTextColor(R.id.db, textColor);
+                    views.setTextColor(R.id.fc, textColor);
+                    break;
+                case 8:
+                    views.setTextColor(R.id.eb, textColor);
+                    views.setTextColor(R.id.fb, textColor);
+                    views.setTextColor(R.id.fc, textColor);
+                    break;
+                case 9:
+                    views.setTextColor(R.id.ac, textColor);
+                    views.setTextColor(R.id.bc, textColor);
+                    views.setTextColor(R.id.fc, textColor);
+                    break;
+                case 10:
+                    views.setTextColor(R.id.cc, textColor);
+                    views.setTextColor(R.id.fc, textColor);
+                    break;
+                case 11:
+                    views.setTextColor(R.id.cc, textColor);
+                    views.setTextColor(R.id.dc, textColor);
+                    views.setTextColor(R.id.fc, textColor);
+                    break;
+                case 0:
+                    views.setTextColor(R.id.cc, textColor);
+                    views.setTextColor(R.id.ec, textColor);
+                    views.setTextColor(R.id.fc, textColor);
+                    break;
+                default:
+                    break;
             }
 
             views.setTextColor(R.id.ad, Color.argb(40, 67, 70, 90));
