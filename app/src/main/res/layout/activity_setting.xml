@@ -1,0 +1,165 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+			<android.support.v7.widget.CardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:layout_marginLeft="5dp"
+				android:layout_marginRight="5dp"
+				android:theme="@style/Theme.AppCompat.Light"
+				android:requiresFadingEdge="vertical"
+				android:orientation="vertical">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_margin="5dp"
+					android:gravity="center"
+					android:orientation="vertical">
+
+					<LinearLayout
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="10dp"
+						android:background="@drawable/background"
+						android:orientation="vertical">
+
+						<RelativeLayout
+							android:layout_margin="20dp"
+							android:layout_weight="1"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:gravity="center">
+
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="넌 머지안아 예쁜 꽃이 될꺼야"
+								android:textSize="23dp"
+								android:textStyle="bold"
+								android:id="@+id/title"
+								android:textColor="@color/white"/>
+						</RelativeLayout>
+
+						<RelativeLayout
+							android:layout_marginBottom="24dp"
+							android:layout_weight="1"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center">
+
+							<ImageView
+								android:id="@+id/backgroud"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_centerHorizontal="true"
+								android:layout_centerVertical="true" />
+
+						</RelativeLayout>
+
+					</LinearLayout>
+
+				</LinearLayout>
+
+			</android.support.v7.widget.CardView>
+
+			<android.support.v7.widget.CardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:layout_marginLeft="5dp"
+				android:layout_marginRight="5dp"
+				android:theme="@style/Theme.AppCompat.Light"
+				android:orientation="vertical">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_margin="5dp"
+					android:orientation="vertical">
+
+					<TextView
+						android:layout_marginTop="5dp"
+						android:layout_marginLeft="5dp"
+						android:layout_marginRight="5dp"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="색상 설정"/>
+
+					<CheckBox
+						android:text="Black모드 사용"
+						android:id="@+id/mode"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dp"
+						android:layout_marginLeft="5dp"
+						android:layout_marginRight="5dp"/>
+
+				</LinearLayout>
+
+			</android.support.v7.widget.CardView>
+
+			<android.support.v7.widget.CardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:layout_marginLeft="5dp"
+				android:layout_marginRight="5dp"
+				android:theme="@style/Theme.AppCompat.Light"
+				android:orientation="vertical">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_margin="5dp"
+					android:orientation="vertical">
+
+					<TextView
+						android:layout_marginTop="5dp"
+						android:layout_marginLeft="5dp"
+						android:layout_marginRight="5dp"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="문구 설정"/>
+
+					<EditText
+						android:layout_marginTop="5dp"
+						android:layout_marginLeft="5dp"
+						android:layout_marginRight="5dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:hint="원하는 문구를 입력해주세요"
+						android:id="@+id/editText1"/>
+
+				</LinearLayout>
+
+			</android.support.v7.widget.CardView>
+
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:layout_marginLeft="5dp"
+				android:layout_marginRight="5dp"
+				android:text="적용하기"
+				android:onClick="save"/>
+
+
+		</LinearLayout>
+
+	</ScrollView>
+    
+</LinearLayout>

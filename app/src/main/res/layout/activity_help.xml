@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="receiver info..."
+            android:textSize="20dp" />
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_weight="1.9"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></LinearLayout>
+
+    <ScrollView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text=" 이 앱은 위젯형식으로
+설정메뉴에서 적용하기를누르고 난뒤에도
+바탕화면에 위젯이 나타나지 않습니다
+바탕화면을 꾹누르면 아래 위젯 메뉴가 생기며
+한글시계라는 위젯을 찾아 바탕화면으로 옮겨주시면됩니다
+
+ 앱 업데이트는 아직은 알람 기능을 추가하지 않아
+수시로 확인을 해주셔야합니다
+업데이트알림은 googleplay를 통해서
+알람이 오겠지만
+수시로 앱이 최신버전인지 메인화면에서 확인해주십시오
+
+잠금화면 기능은 기술적 문제로 조오금 늦어지고있습니다 ㅜㅜ
+
+AOD(Always On Display)기능또한 효율적인 에너지 관리를 위한 방법을 고안중에 있습니다
+
+다양한 색을 사용하는 기능은 다음 업데이트때 업데이트 될 예정입니다
+
+이번 업데이트는 UI환경 개선과
+원래 공지사항을 올렸던 커뮤니티인
+생활코딩의 본연의 목적과는 다른
+부적절한 말을 굳이 올리지 않고
+이곳에서 공지사항을 실시간으로 올리기 위하여
+업데이트가 진행되었습니다"/>
+
+    </ScrollView>
+
+    
+</LinearLayout>

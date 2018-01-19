@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<android.support.v7.widget.CardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_marginLeft="5dp"
+				android:layout_marginRight="5dp"
+				android:layout_marginTop="5dp"
+				android:layout_weight="1"
+				android:orientation="vertical"
+				android:theme="@style/Theme.AppCompat.Light">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="150dp"
+					android:layout_margin="5dp"
+					android:gravity="center"
+					android:background="@color/white"
+					android:orientation="vertical">
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="3dp"
+						android:text="오늘도 수고한 당신에게"
+						android:textSize="35dp" />
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="3dp"
+						android:text="한글시계입니다"
+						android:textSize="25dp" />
+
+				</LinearLayout>
+
+			</android.support.v7.widget.CardView>
+
+			<android.support.v7.widget.CardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_marginLeft="5dp"
+				android:layout_marginRight="5dp"
+				android:layout_marginTop="5dp"
+				android:orientation="vertical"
+				android:theme="@style/Theme.AppCompat.Light">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="35dp"
+					android:layout_margin="5dp"
+					android:gravity="center"
+					android:background="@color/white"
+					android:orientation="vertical">
+
+					<TextView
+						android:onClick="update"
+						android:id="@+id/version"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="3dp"
+						android:text="checking version"
+						android:textSize="20dp" />
+
+				</LinearLayout>
+
+			</android.support.v7.widget.CardView>
+
+			<android.support.v7.widget.CardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="5dp"
+				android:layout_marginRight="5dp"
+				android:layout_marginTop="5dp"
+				android:orientation="vertical"
+				android:background="@color/white"
+				android:theme="@style/Theme.AppCompat.Light">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_margin="5dp"
+					android:orientation="vertical"
+					android:gravity="center">
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_margin="5dp"
+						android:gravity="center"
+						android:text="지금 한글시계는.."
+						android:textSize="15dp"/>
+
+
+						<TextView
+							android:id="@+id/download"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_margin="5dp"
+							android:gravity="center"
+							android:textSize="30dp"
+							android:text="receiving info"/>
+
+				</LinearLayout>
+
+			</android.support.v7.widget.CardView>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal">
+
+				<Button
+					android:layout_weight="1"
+					android:background="@color/white"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="5dp"
+					android:layout_marginLeft="5dp"
+					android:layout_marginRight="5dp"
+					android:layout_marginTop="5dp"
+					android:onClick="setting"
+					android:text="설정" />
+
+				<Button
+					android:layout_weight="1"
+					android:background="@color/white"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="5dp"
+					android:layout_marginRight="5dp"
+					android:layout_marginTop="5dp"
+					android:onClick="help"
+					android:text="공지사항" />
+
+			</LinearLayout>
+
+			<android.support.v7.widget.CardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="5dp"
+				android:layout_marginRight="5dp"
+				android:orientation="vertical"
+				android:theme="@style/Theme.AppCompat.Light">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_margin="5dp"
+					android:orientation="vertical">
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dp"
+						android:text="개발자 정보" />
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dp"
+						android:text="위젯 코딩 : Joonhee Lee(대륜고)" />
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dp"
+						android:text="기타 코딩 및 코드 개선 : Yongmin Yoo(성보고)
+" />
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dp"
+						android:text="한글시계 / 개발자 홈페이지" />
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dp"
+						android:text="한글시계 홈페이지 : https://hangulclock.today" />
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dp"
+						android:text="개발자 블로그 : http://blog.naver.com/robo813" />
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dp"
+						android:text="개발자 페이스북(이메일) : lee joon hee(neo81389@gmail.com)" />
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginBottom="5dp"
+						android:layout_marginTop="5dp"
+						android:text="Copyright © 2018 Lee Joon Hee(neo81389). Released under the GNU General Public License v3." />
+
+				</LinearLayout>
+
+			</android.support.v7.widget.CardView>
+
+		</LinearLayout>
+
+	</ScrollView>
+    
+</LinearLayout>
