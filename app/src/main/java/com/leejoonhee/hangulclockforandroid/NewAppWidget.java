@@ -1,19 +1,20 @@
 package com.leejoonhee.hangulclockforandroid;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
-import android.content.ComponentName;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.util.Log;
+
 import android.widget.RemoteViews;
 
 import java.util.Calendar;
+import java.util.HashSet;
+
 
 /**
  * Implementation of App Widget functionality.
@@ -23,56 +24,117 @@ public class NewAppWidget extends AppWidgetProvider {
     static final int PREF_COLOR_BLACK = 2;
     static final int PREF_COLOR_DEFAULT = PREF_COLOR_WHITE;
 
-    private static final int WIDGET_UPDATE_INTERVAL = 1000; //초당 한번씩 update를 합니다
+    private static final String TAG = "AppWidget";
 
-    //시스템에서 지속적으로 액티비티를 끄는것을 방지하기위해 AlarmManager를 사용하여 계속 불러주기위함입니다
-    private static PendingIntent mSender;
-    private static AlarmManager mManager;
+    /* AppWidgetProvider 의 인스턴스는 호출될 때 마다 생성되므로
+     * static class에서 일괄적으로 처리하도록 해야합니다.
+     */
+    private static class AppWidgetUpdateData extends BroadcastReceiver {
+        private Context mContext = null;
+        private AppWidgetManager mManager = null;
+        private HashSet<Integer> mViewIds = new HashSet<>();
+        private boolean mTickEnabled = false;
+
+        AppWidgetUpdateData () {
+
+        }
+
+        void update() {
+            int [] viewIds = new int[mViewIds.size()];
+            Integer[] ids = new Integer[mViewIds.size()];
+            mViewIds.toArray(ids);
+
+            String msg = "view ids (";
+            for (int i = 0; i < viewIds.length; i++) {
+                viewIds[i] = ids[i];
+                msg += ids[i] + ", ";
+            }
+            Log.v(TAG, msg + " ) will be updated");
+
+            updateWidgets(mContext, mManager, viewIds);
+        }
+
+        void onUpdate(Context context, AppWidgetManager manager, int[] viewIds) {
+            mContext = context.getApplicationContext();
+            mManager = manager;
+            String msg = "update view ids (";
+            for (int i: viewIds) {
+                mViewIds.add(i);
+                msg += i + ", ";
+            }
+            Log.v(TAG, msg + " ) will be combined");
+            update();
+            subscribeTick();
+        }
+
+        void onDeleted(Context context, int[] viewIds) {
+            mContext = context.getApplicationContext();
+            for(int i: viewIds) {
+                mViewIds.remove(i);
+            }
+            subscribeTick();
+        }
+
+        /* 1분마다 시계를 업데이트해야 하므로, TIME_TICK 인텐트를 이용해서 업데이트 하도록 합니다. */
+        private static final IntentFilter TICK_INTENT_FILTER = new IntentFilter(Intent.ACTION_TIME_TICK);
+
+        void subscribeTick() {
+            boolean hasIds = !mViewIds.isEmpty();
+            if (hasIds && !mTickEnabled) {
+                mContext.registerReceiver(this, TICK_INTENT_FILTER);
+                mTickEnabled = true;
+                Log.v(TAG, "tick registered");
+            } else if (mTickEnabled && !hasIds) {
+                mContext.unregisterReceiver(this);
+                mTickEnabled = false;
+                Log.v(TAG, "tick unregistered");
+            }
+        }
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (Intent.ACTION_TIME_TICK.equals(intent.getAction())) {
+                update();
+            }
+        }
+    }
+
+    private static AppWidgetUpdateData sUpdateData = new AppWidgetUpdateData();
 
     @Override
-    public void onReceive(Context context, Intent intent)
-    {
-        super.onReceive(context, intent);
-
-        String action = intent.getAction();
-
-        if(action.equals("android.appwidget.action.APPWIDGET_UPDATE"))
-        {
-            //Log.w(TAG, "android.appwidget.action.APPWIDGET_UPDATE");
-            removePreviousAlarm();
-
-            long firstTime = System.currentTimeMillis() + WIDGET_UPDATE_INTERVAL;
-            mSender = PendingIntent.getBroadcast(context, 0, intent, 0);
-            mManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-            mManager.set(AlarmManager.RTC, firstTime, mSender);
-        }
-
-        else if(action.equals("android.appwidget.action.APPWIDGET_DISABLED"))
-        {
-            removePreviousAlarm();//위젯 삭제시 액티비티를 계속 불러주던 알람도 삭제합니다
-        }
-
+    public void onEnabled(Context context) {
+        Log.d(TAG, "enabled: " + this);
     }
 
     @Override
-    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds)
-    {
-        SharedPreferences sets = context.getSharedPreferences("usersets",0);//MainActivity에서 받아온 sharedpreference의 값들을 받아오기위한 준비입니다
+    public void onDisabled(Context context) {
+        Log.d(TAG, "disabled: " + this);
+    }
 
-        appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, getClass()));
-        super.onUpdate(context, appWidgetManager, appWidgetIds);
+    @Override
+    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+        Log.d(TAG, "update: " + this + " ids: " + appWidgetIds.length);
+        sUpdateData.onUpdate(context, appWidgetManager, appWidgetIds);
+    }
+
+    @Override
+    public void onDeleted(Context context, int[] appWidgetIds) {
+        Log.d(TAG, "deleted: " + this + " ids: " + appWidgetIds.length);
+        sUpdateData.onDeleted(context, appWidgetIds);
+    }
+
+    static private void updateWidgets(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+        Log.d(TAG, "updateWidgets");
+        SharedPreferences sets = context.getSharedPreferences("usersets",0);//MainActivity에서 받아온 sharedpreference의 값들을 받아오기위한 준비입니다
 
         final int N = appWidgetIds.length;
         for(int i = 0 ; i < N ; i++)
         {
             int appWidgetId = appWidgetIds[i];
-
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);//new_app_widget의 objects들의 값을 변경하기위함입니다
 
             Calendar now = Calendar.getInstance(); //calendar에서 현재 시각을 받아옵니다
-
-            int hour = now.get(Calendar.HOUR_OF_DAY) % 12; //"시"는 hour에 저장합니다
-
+            int hour = now.get(Calendar.HOUR_OF_DAY); //"시"는 hour에 저장합니다
             int min = now.get(Calendar.MINUTE); //"분"은 min에 저장합니다
 
             views.setTextViewText(R.id.textView1, sets.getString("title", "title"));//Onupdate에서 받은 sentence의 값을 new_app_widget의 textview1의 ID를 가진 object에 올려줍니다
@@ -82,16 +144,16 @@ public class NewAppWidget extends AppWidgetProvider {
             switch (prefColor) {
                 case PREF_COLOR_WHITE:
                     //textcolorselcetion이 1이라면..
-                    views.setTextColor(R.id.textView1, Color.WHITE);
-                    views.setImageViewResource(R.id.board, R.drawable.hangulclock_board_white);
                     textColor = Color.WHITE;
+                    views.setImageViewResource(R.id.board, R.drawable.hangulclock_board_white);
+
                     break;
                 case PREF_COLOR_BLACK:
                     //textcolorselcetion이 2라면..
-                    views.setTextColor(R.id.textView1, Color.BLACK);
-                    views.setImageViewResource(R.id.board, R.drawable.hangulclock_board_black);
                     textColor = Color.BLACK;
+                    views.setImageViewResource(R.id.board, R.drawable.hangulclock_board_black);
             }
+            views.setTextColor(R.id.textView1, textColor);
 
             views.setTextColor(R.id.aa, Color.argb(40, 67, 70, 90));
             views.setTextColor(R.id.ab, Color.argb(40, 67, 70, 90));
@@ -112,7 +174,7 @@ public class NewAppWidget extends AppWidgetProvider {
             views.setTextColor(R.id.fb, Color.argb(40, 67, 70, 90));
             views.setTextColor(R.id.fc, Color.argb(40, 67, 70, 90));
 
-            switch (hour) {
+            switch (hour % 12) {
                 case 1:
                     views.setTextColor(R.id.aa, textColor);
                     views.setTextColor(R.id.fc, textColor);
@@ -1246,15 +1308,5 @@ public class NewAppWidget extends AppWidgetProvider {
             appWidgetManager.updateAppWidget(appWidgetId, views);
         }
     }
-
-    public void removePreviousAlarm()
-    {
-        if(mManager != null && mSender != null)
-        {
-            mSender.cancel();
-            mManager.cancel(mSender);
-        }
-    }
-
 }
 
