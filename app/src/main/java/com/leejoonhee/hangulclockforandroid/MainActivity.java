@@ -52,8 +52,9 @@ public class MainActivity extends AppCompatActivity{
                             editor.putInt("color", NewAppWidget.PREF_COLOR_WHITE); //ID가"color"인 sharedpreference에 정수 "1"를 저장합니다
                         }
                         editor.apply();
-                        Toast.makeText(getApplicationContext(), "적용되었습니다", Toast.LENGTH_SHORT).show(); //저장 버튼 클릭시 적용됨을 알리기위해 메세지를 띄웁니다
+                        NewAppWidget.sUpdateData.update();
 
+                        Toast.makeText(getApplicationContext(), "적용되었습니다", Toast.LENGTH_SHORT).show(); //저장 버튼 클릭시 적용됨을 알리기위해 메세지를 띄웁니다
                     }
                 }
         );
