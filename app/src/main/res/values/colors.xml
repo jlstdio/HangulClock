@@ -6,6 +6,12 @@
     <color name="whitegray">#2843465a</color>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
-    <color name="sapcedark">#011926</color>
+    <color name="sapcedark">#081528</color>
     <color name="sapcelightdark">#082f44</color>
+    <color name="pink">#d070a3</color>
+    <color name="bluegreen">#62a49d</color>
+    <color name="green">#95d365</color>
+    <color name="red">#ca4833</color>
+    <color name="orange">#e8be58</color>
+    <color name="darkblue">#40a1f8</color>
 </resources>
