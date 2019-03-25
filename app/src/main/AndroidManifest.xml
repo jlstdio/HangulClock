@@ -22,7 +22,8 @@
         android:label="HangulClock"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme">
@@ -34,6 +35,7 @@
         </activity>
         <activity android:name=".SettingActivity" />
         <activity android:name=".HelpActivity" />
+        <activity android:name=".SentenceActivity"/>
 
         <receiver
             android:name=".widget.bigsizefull"
@@ -88,6 +90,7 @@
             android:theme="@style/AppThemeNoAction">
 
         </activity>
+
         <activity android:name=".lockscreen.lockset"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance">

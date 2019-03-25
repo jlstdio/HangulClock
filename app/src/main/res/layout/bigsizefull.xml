@@ -38,6 +38,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:onClick="home"
                     android:id="@+id/aa"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -50,6 +51,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:onClick="home"
                     android:id="@+id/ab"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -62,6 +64,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:onClick="home"
                     android:id="@+id/ac"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -74,6 +77,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:onClick="home"
                     android:id="@+id/ad"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -86,6 +90,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:onClick="home"
                     android:id="@+id/ae"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -98,6 +103,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:onClick="home"
                     android:id="@+id/af"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -118,6 +124,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:onClick="home"
                     android:id="@+id/ba"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -130,6 +137,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:onClick="home"
                     android:id="@+id/bb"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -142,6 +150,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:onClick="home"
                     android:id="@+id/bc"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -154,6 +163,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:onClick="home"
                     android:id="@+id/bd"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -166,6 +176,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:onClick="home"
                     android:id="@+id/be"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -178,6 +189,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:onClick="home"
                     android:id="@+id/bf"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -198,6 +210,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:onClick="home"
                     android:id="@+id/ca"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -210,6 +223,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:onClick="home"
                     android:id="@+id/cb"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -222,6 +236,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:onClick="home"
                     android:id="@+id/cc"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -234,6 +249,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:onClick="home"
                     android:id="@+id/cd"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -246,6 +262,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:onClick="home"
                     android:id="@+id/ce"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -258,6 +275,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:onClick="home"
                     android:id="@+id/cf"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"

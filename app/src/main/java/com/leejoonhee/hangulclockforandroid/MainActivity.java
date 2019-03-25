@@ -16,8 +16,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import com.leejoonhee.hangulclockforandroid.lockscreen.lockset;
-
 public class MainActivity extends AppCompatActivity
 {
 	DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
@@ -27,11 +25,19 @@ public class MainActivity extends AppCompatActivity
 
 	TextView mversion;
 	TextView mdownloads;
+	TextView sentence;
+
+	SharedPreferences sets;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sentence = findViewById(R.id.sentence);
+
+		sets = getSharedPreferences("usersets", Activity.MODE_PRIVATE); //MainActivity가 꺼져도 NewAppWidget에서 값을 받아 올 수 있도록 SharedPreference를 사용하였습니다
+		sentence.setText(sets.getString("title", "receivingfail"));
 
 		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 		boolean isWhiteListing = false;
@@ -70,10 +76,6 @@ public class MainActivity extends AppCompatActivity
 	
 	public void help(View v){
 		startActivity(new Intent(this, HelpActivity.class));
-	}
-
-	public void locksetting(View v){
-		startActivity(new Intent(this, lockset.class));
 	}
 
 	public void pc(View v){
@@ -116,7 +118,7 @@ public class MainActivity extends AppCompatActivity
 			public void onDataChange(DataSnapshot dataSnapshot) {
 				String text = dataSnapshot.getValue(String.class);
 
-				if(text.equals("2.1"))
+				if(text.equals("3.0"))
 					mversion.setText("현재 최신버전입니다");
 
 				else

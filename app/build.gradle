@@ -6,8 +6,8 @@ android {
         applicationId "com.leejoonhee.hangulclockforandroid"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 11
-        versionName "2.1"
+        versionCode 12
+        versionName "3.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

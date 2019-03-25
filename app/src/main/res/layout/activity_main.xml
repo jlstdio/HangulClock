@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:orientation="vertical"
+	android:background="@color/lightgray">
 
 	<ScrollView
 		android:layout_width="match_parent"
@@ -10,390 +12,896 @@
 
 		<LinearLayout
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="vertical"
-			android:background="@color/darkblue">
+			android:layout_height="match_parent"
+			android:orientation="vertical">
 
-				<LinearLayout
-					android:layout_width="match_parent"
-					android:layout_height="140dp"
-					android:gravity="left"
-					android:background="@drawable/mainwallpaper"
-					android:orientation="vertical">
-
-					<TextView
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_marginTop="10dp"
-						android:layout_marginLeft="10dp"
-						android:text="네가 있어 아름다운 오늘"
-						android:textColor="@color/white"
-						android:textSize="30dp" />
-
-					<TextView
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_marginTop="10dp"
-						android:layout_marginLeft="10dp"
-						android:textColor="@color/white"
-						android:text="한글시계입니다"
-						android:textSize="25dp" />
-
-				</LinearLayout>
-
-			<TextView
-				android:layout_weight="1"
-				android:layout_gravity="left"
-				android:layout_width="wrap_content"
-				android:layout_height="0dp"
-				android:layout_margin="3dp"
-				android:textColor="@color/white"
-				android:text=""
-				android:textSize="20dp" />
-
-
-				<LinearLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_margin="5dp"
-					android:gravity="center"
-					android:orientation="vertical">
-
-
-					<TextView
-						android:layout_weight="1"
-						android:layout_gravity="left"
-						android:layout_width="wrap_content"
-						android:layout_height="0dp"
-						android:layout_margin="3dp"
-						android:textColor="@color/white"
-						android:text="-업데이트"
-						android:textSize="20dp" />
-
-					<TextView
-						android:layout_weight="1"
-						android:layout_gravity="left"
-						android:onClick="update"
-						android:id="@+id/version"
-						android:layout_width="wrap_content"
-						android:layout_height="0dp"
-						android:layout_margin="3dp"
-						android:textColor="@color/white"
-						android:text="checking version..."
-						android:textSize="20dp" />
-
-				</LinearLayout>
-
-			<TextView
-				android:layout_weight="1"
-				android:layout_gravity="left"
-				android:layout_width="wrap_content"
-				android:layout_height="0dp"
-				android:layout_margin="3dp"
-				android:textColor="@color/white"
-				android:text="------------------------------------------"
-				android:textSize="20dp" />
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="500dp"
+				android:background="@drawable/wall">
 
 				<LinearLayout
 					android:layout_width="match_parent"
 					android:layout_height="match_parent"
-					android:layout_margin="5dp"
-					android:orientation="vertical"
-					android:gravity="center">
+					android:layout_marginBottom="100dp"
+					android:orientation="vertical">
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="0dp"
+						android:layout_marginTop="20dp"
+						android:layout_weight="1">
+
+						<TextView
+							android:id="@+id/sentence"
+							android:layout_width="match_parent"
+							android:layout_height="match_parent"
+							android:layout_margin="10dp"
+							android:gravity="center"
+							android:text="네가 있어 행복한 오늘 한글시계"
+							android:textColor="@color/white"
+							android:textSize="20dp" />
+
+					</LinearLayout>
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="0dp"
+						android:layout_weight="4"
+						android:gravity="center">
+
+						<RelativeLayout
+							android:layout_width="220dp"
+							android:layout_height="220dp"
+							android:layout_margin="20dp"
+							android:gravity="center">
+
+							<LinearLayout
+								android:layout_width="match_parent"
+								android:layout_height="match_parent"
+								android:layout_margin="20dp">
+
+								<LinearLayout
+									android:layout_width="match_parent"
+									android:layout_height="fill_parent"
+									android:layout_weight="1"
+									android:foregroundGravity="fill_horizontal"
+									android:orientation="vertical">
+
+									<TextView
+										android:id="@+id/aa"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="한"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/ab"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="아"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/ac"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="간"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/ad"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="소"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/ae"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text=""
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/af"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text=""
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+								</LinearLayout>
+
+								<LinearLayout
+									android:layout_width="match_parent"
+									android:layout_height="fill_parent"
+									android:layout_weight="1"
+									android:orientation="vertical">
+
+									<TextView
+										android:id="@+id/ba"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="글"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/bb"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="름"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/bc"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="직"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/bd"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="프"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/be"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text=""
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/bf"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text=""
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+								</LinearLayout>
+
+								<LinearLayout
+									android:layout_width="match_parent"
+									android:layout_height="fill_parent"
+									android:layout_weight="1"
+									android:orientation="vertical">
+
+									<TextView
+										android:id="@+id/ca"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="의"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/cb"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="다"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/cc"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="한"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/cd"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="트"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/ce"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="한"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/cf"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text=""
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+								</LinearLayout>
+
+								<LinearLayout
+									android:layout_width="match_parent"
+									android:layout_height="fill_parent"
+									android:layout_weight="1"
+									android:orientation="vertical">
+
+									<TextView
+										android:id="@+id/da"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text=""
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/db"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="움"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/dc"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text=""
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/dd"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="웨"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/de"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="글"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/df"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="입"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+								</LinearLayout>
+
+								<LinearLayout
+									android:layout_width="match_parent"
+									android:layout_height="fill_parent"
+									android:layout_weight="1"
+									android:orientation="vertical">
+
+									<TextView
+										android:id="@+id/ea"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text=""
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/eb"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="을"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/ec"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text=""
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/ed"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="어"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/ee"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="시"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/ef"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="니"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+								</LinearLayout>
+
+								<LinearLayout
+									android:layout_width="match_parent"
+									android:layout_height="fill_parent"
+									android:layout_weight="1"
+									android:orientation="vertical">
+
+									<TextView
+										android:id="@+id/fa"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text=""
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/fb"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text=""
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/fc"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text=""
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/fd"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text=""
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/fe"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="계"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+									<TextView
+										android:id="@+id/ff"
+										android:layout_width="match_parent"
+										android:layout_height="fill_parent"
+										android:layout_margin="3dp"
+										android:layout_weight="1"
+										android:gravity="center"
+										android:text="다"
+										android:textColor="@color/white"
+										android:textSize="20dp"
+										android:textStyle="bold" />
+
+								</LinearLayout>
+
+							</LinearLayout>
+
+							<ImageView
+								android:id="@+id/imageView"
+								android:layout_width="8dp"
+								android:layout_height="45dp"
+								android:layout_alignParentStart="true"
+								android:layout_below="@+id/imageView2"
+								app:srcCompat="@color/white" />
+
+							<ImageView
+								android:id="@+id/imageView2"
+								android:layout_width="55dp"
+								android:layout_height="8dp"
+								android:layout_alignParentStart="true"
+								android:layout_alignParentTop="true"
+								app:srcCompat="@color/white" />
+
+							<ImageView
+								android:id="@+id/imageView4"
+								android:layout_width="8dp"
+								android:layout_height="45dp"
+								android:layout_above="@+id/imageView5"
+								android:layout_alignParentEnd="true"
+								app:srcCompat="@color/white" />
+
+							<ImageView
+								android:id="@+id/imageView5"
+								android:layout_width="55dp"
+								android:layout_height="8dp"
+								android:layout_alignParentBottom="true"
+								android:layout_alignParentEnd="true"
+								app:srcCompat="@color/white" />
+
+						</RelativeLayout>
+
+					</LinearLayout>
 
 					<TextView
+						android:gravity="center"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:layout_margin="5dp"
-						android:layout_gravity="left"
+						android:textSize="13dp"
 						android:textColor="@color/white"
-						android:text="지금 한글시계는.."
-						android:textSize="15dp"/>
+						android:text="">
 
+					</TextView>
 
 					<TextView
-						android:id="@+id/download"
+						android:gravity="center"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:textSize="15dp"
+						android:textColor="@color/white"
+						android:text="">
+
+					</TextView>
+
+				</LinearLayout>
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+
+				<TextView
+					android:gravity="center"
+					android:layout_marginTop="20dp"
+					android:layout_marginLeft="20dp"
+					android:layout_marginBottom="20dp"
+					android:layout_marginRight="20dp"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:textSize="20dp"
+					android:textColor="@color/lightblack"
+					android:text="오늘도 수고한 당신 어서오세요"/>
+
+				<android.support.v7.widget.CardView
+					android:layout_width="match_parent"
+					android:layout_height="100dp"
+					android:layout_margin="10dp"
+					app:cardCornerRadius="15dp"
+					android:theme="@style/Theme.AppCompat.Light"
+					android:orientation="vertical">
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:orientation="vertical">
+
+						<TextView
+							android:layout_marginTop="12dp"
+							android:layout_marginLeft="12dp"
+							android:layout_width="match_parent"
+							android:layout_height="0dp"
+							android:layout_weight="1"
+							android:text="지금 한글시계는"/>
+
+						<LinearLayout
+							android:layout_margin="5dp"
+							android:layout_width="match_parent"
+							android:layout_height="0dp"
+							android:layout_weight="3">
+
+							<TextView
+								android:layout_width="match_parent"
+								android:layout_height="match_parent"
+								android:gravity="center"
+								android:text="loading"
+								android:id="@+id/download"/>
+
+						</LinearLayout>
+
+					</LinearLayout>
+
+				</android.support.v7.widget.CardView>
+				
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="100dp"
+					android:layout_margin="10dp"
+					android:orientation="horizontal">
+
+					<android.support.v7.widget.CardView
+						android:layout_marginRight="10dp"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="2"
+					app:cardCornerRadius="15dp"
+					android:theme="@style/Theme.AppCompat.Light"
+					android:orientation="vertical">
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:orientation="vertical">
+
+						<TextView
+							android:layout_marginTop="12dp"
+							android:layout_marginLeft="12dp"
+							android:layout_width="match_parent"
+							android:layout_height="0dp"
+							android:layout_weight="1"
+							android:text="업데이트 상황"/>
+
+						<LinearLayout
+							android:layout_margin="5dp"
+							android:layout_width="match_parent"
+							android:layout_height="0dp"
+							android:layout_weight="3">
+
+							<TextView
+								android:onClick="update"
+								android:layout_width="match_parent"
+								android:layout_height="match_parent"
+								android:gravity="center"
+								android:text="loading"
+								android:id="@+id/version"/>
+
+							</LinearLayout>
+
+						</LinearLayout>
+
+					</android.support.v7.widget.CardView>
+
+					<android.support.v7.widget.CardView
+						android:layout_marginLeft="10dp"
+						android:layout_width="0dp"
+						android:layout_height="match_parent"
+						android:layout_weight="1.3"
+						app:cardCornerRadius="15dp"
+						android:theme="@style/Theme.AppCompat.Light"
+						android:layout_gravity="center">
+						
+						<LinearLayout
+							android:layout_margin="8dp"
+							android:layout_width="match_parent"
+							android:layout_height="match_parent"
+							android:orientation="vertical">
+
+							<LinearLayout
+								android:layout_marginBottom="5dp"
+								android:layout_weight="4"
+								android:layout_width="match_parent"
+								android:layout_height="0dp">
+
+								<Button
+									android:layout_marginLeft="5dp"
+									android:layout_marginRight="5dp"
+									android:layout_width="match_parent"
+									android:layout_height="match_parent"
+									android:background="@drawable/roundbluegreen"
+									android:textColor="@color/white"
+									android:onClick="help"
+									android:textStyle="bold"
+									android:text="도움말"/>
+
+							</LinearLayout>
+
+							<LinearLayout
+								android:layout_weight="4"
+								android:layout_width="match_parent"
+								android:layout_height="0dp">
+								
+								<Button
+									android:layout_marginLeft="5dp"
+									android:layout_marginRight="5dp"
+									android:layout_width="match_parent"
+									android:layout_height="match_parent"
+									android:background="@drawable/roundbluegreen"
+									android:textColor="@color/white"
+									android:textStyle="bold"
+									android:onClick="setting"
+									android:text="설정하기"/>
+
+							</LinearLayout>
+							
+						</LinearLayout>
+
+					</android.support.v7.widget.CardView>
+
+				</LinearLayout>
+
+				<android.support.v7.widget.CardView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_margin="10dp"
+					app:cardCornerRadius="15dp"
+					android:theme="@style/Theme.AppCompat.Light"
+					android:orientation="vertical">
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="vertical">
+
+						<LinearLayout
+							android:layout_marginTop="20dp"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:gravity="center"
+							android:orientation="vertical">
+
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="match_parent"
+								android:text="누구나"
+								android:textColor="@color/black"
+								android:textSize="30dp"/>
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="match_parent"
+								android:text="관심이 있다면."
+								android:textColor="@color/black"
+								android:textSize="30dp"/>
+							<LinearLayout
+								android:layout_width="match_parent"
+								android:layout_height="10dp">
+
+							</LinearLayout>
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="match_parent"
+								android:text="오픈소스 프로젝트"
+								android:textColor="@color/black"
+								android:textSize="30dp"/>
+
+							<LinearLayout
+								android:layout_width="match_parent"
+								android:layout_height="10dp">
+
+							</LinearLayout>
+
+
+							<LinearLayout
+								android:layout_marginBottom="20dp"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								android:orientation="horizontal"
+								android:gravity="center">
+
+								<Button
+									android:onClick="pc"
+									android:layout_width="150dp"
+									android:layout_height="40dp"
+									android:text="PC 버전 GITHUB"
+									android:textColor="@color/white"
+									android:background="@drawable/button"
+									android:layout_margin="10dp"
+									/>
+
+								<Button
+									android:onClick="android"
+									android:layout_width="150dp"
+									android:layout_height="40dp"
+									android:text="ANDROID 버전 GITHUB"
+									android:textColor="@color/white"
+									android:background="@drawable/button"
+									android:layout_margin="10dp"
+									/>
+
+							</LinearLayout>
+
+						</LinearLayout>
+
+					</LinearLayout>
+
+				</android.support.v7.widget.CardView>
+
+				<LinearLayout
+					android:layout_margin="10dp"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical">
+
+					<TextView
+						android:layout_marginLeft="3dp"
+						android:textColor="@color/black"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="개발자 정보" />
+
+					<TextView
+						android:layout_marginLeft="3dp"
+						android:textColor="@color/black"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:layout_margin="5dp"
-						android:layout_gravity="left"
-						android:textColor="@color/white"
-						android:textSize="25dp"
-						android:text="receiving info"/>
+						android:layout_marginTop="5dp"
+						android:text="메인 코딩 : Joonhee Lee(대륜고)" />
 
+					<TextView
+						android:layout_marginLeft="3dp"
+						android:textColor="@color/black"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dp"
+						android:text="초반 코드 개선 : Yongmin Yoo(성보고)" />
+
+					<TextView
+						android:layout_marginLeft="3dp"
+						android:textColor="@color/black"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dp"
+						android:text="한글시계 홈페이지 : https://hangulclock.today" />
+
+					<TextView
+						android:layout_marginLeft="3dp"
+						android:textColor="@color/black"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginBottom="5dp"
+						android:layout_marginTop="5dp"
+						android:text="Copyright © 2018 Lee Joon Hee(neo81389). Released under the GNU General Public License v3." />
 				</LinearLayout>
-
-			<TextView
-				android:layout_weight="1"
-				android:layout_gravity="left"
-				android:layout_width="wrap_content"
-				android:layout_height="0dp"
-				android:layout_margin="3dp"
-				android:textColor="@color/white"
-				android:text="------------------------------------------"
-				android:textSize="20dp" />
-
-			<LinearLayout
-				android:gravity="bottom"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:orientation="vertical">
-
-				<TextView
-					android:layout_marginLeft="3dp"
-					android:textColor="@color/white"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:text="개발자 정보" />
-
-				<TextView
-					android:layout_marginLeft="3dp"
-					android:textColor="@color/white"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="5dp"
-					android:text="메인 코딩 : Joonhee Lee(대륜고)" />
-
-				<TextView
-					android:layout_marginLeft="3dp"
-					android:textColor="@color/white"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="5dp"
-					android:text="초반 코드 개선 : Yongmin Yoo(성보고)" />
-
-				<TextView
-					android:layout_marginLeft="3dp"
-					android:textColor="@color/white"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="5dp"
-					android:text="한글시계 홈페이지 : https://hangulclock.today" />
-
-				<TextView
-					android:layout_marginLeft="3dp"
-					android:textColor="@color/white"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginBottom="5dp"
-					android:layout_marginTop="5dp"
-					android:text="Copyright © 2018 Lee Joon Hee(neo81389). Released under the GNU General Public License v3." />
-
-			</LinearLayout>
-
-			<TextView
-				android:layout_weight="1"
-				android:layout_gravity="left"
-				android:layout_width="wrap_content"
-				android:layout_height="0dp"
-				android:layout_margin="3dp"
-				android:textColor="@color/white"
-				android:text="------------------------------------------"
-				android:textSize="20dp" />
-
-			<LinearLayout
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:orientation="horizontal">
-
-				<Button
-					android:layout_weight="1"
-					android:layout_width="0dp"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:onClick="setting"
-					android:background="@drawable/setting_button"
-					android:text="설정" />
-
-				<Button
-					android:layout_weight="1"
-					android:layout_width="0dp"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:background="@drawable/setting_button"
-					android:onClick="help"
-					android:text="설치 방법" />
-
-			</LinearLayout>
-
-			<LinearLayout
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:orientation="horizontal">
-
-				<Button
-					android:layout_weight="1"
-					android:layout_width="0dp"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:onClick="locksetting"
-					android:background="@drawable/setting_button"
-					android:text="잠금화면 설정(베타)" />
-
-
-			</LinearLayout>
-
-			<TextView
-				android:layout_weight="1"
-				android:layout_gravity="left"
-				android:layout_width="wrap_content"
-				android:layout_height="0dp"
-				android:layout_margin="3dp"
-				android:textColor="@color/white"
-				android:text="------------------------------------------"
-				android:textSize="20dp" />
-
-			<LinearLayout
-				android:gravity="bottom"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:orientation="vertical">
-
-				<TextView
-					android:layout_marginLeft="3dp"
-					android:textColor="@color/white"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:text="업데이트 노트" />
-
-				<TextView
-					android:layout_marginLeft="3dp"
-					android:textColor="@color/white"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="5dp"
-					android:text="메인 업데이트가 아닌 안정성 업데이트입니다" />
-
-				<TextView
-					android:layout_marginLeft="3dp"
-					android:textColor="@color/white"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="5dp"
-					android:text="방학동안 노력을 해보았는데.. 크게 수정을 못하였네요ㅜㅜ" />
-
-				<TextView
-					android:layout_marginLeft="3dp"
-					android:textColor="@color/white"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="5dp"
-					android:text="다음번엔 새롭게 업데이트될 PC 버전과 함께 새로운 디자인과 기능으로 찾아가겠습니다~" />
-
-				<TextView
-					android:layout_marginLeft="3dp"
-					android:textColor="@color/white"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginBottom="5dp"
-					android:layout_marginTop="5dp"
-					android:text="잠금화면과 시계가 끈금없이 멈추는 문제를 해결하였습니다" />
-
-			</LinearLayout>
-
-				<LinearLayout
-					android:gravity="bottom"
-					android:layout_width="match_parent"
-					android:layout_height="150dp"
-					android:orientation="vertical"
-					android:background="@drawable/mainwallpaperbottom">
-
-
-				</LinearLayout>
-
-			<LinearLayout
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:background="@color/sapcedark"
-				android:gravity="center"
-				android:orientation="vertical">
-
-				<TextView
-					android:layout_width="wrap_content"
-					android:layout_height="match_parent"
-					android:layout_margin="10dp"
-					android:text="한글, 그 아름다움"
-					android:textColor="@color/white"
-					android:textSize="30dp"/>
-
-				<ImageView
-					android:layout_margin="20dp"
-					android:layout_width="190dp"
-					android:layout_height="190dp"
-					android:background="@drawable/hangulclockexample"
-					/>
-
-				<LinearLayout
-					android:layout_width="match_parent"
-					android:layout_height="50dp">
-
-				</LinearLayout>
-
-				<TextView
-					android:layout_width="wrap_content"
-					android:layout_height="match_parent"
-					android:text="누구나"
-					android:textColor="@color/white"
-					android:textSize="30dp"/>
-				<TextView
-					android:layout_width="wrap_content"
-					android:layout_height="match_parent"
-					android:text="관심이 있다면."
-					android:textColor="@color/white"
-					android:textSize="30dp"/>
-				<LinearLayout
-					android:layout_width="match_parent"
-					android:layout_height="10dp">
-
-				</LinearLayout>
-				<TextView
-					android:layout_width="wrap_content"
-					android:layout_height="match_parent"
-					android:text="오픈소스 프로젝트"
-					android:textColor="@color/white"
-					android:textSize="30dp"/>
-
-				<LinearLayout
-					android:layout_width="match_parent"
-					android:layout_height="10dp">
-
-				</LinearLayout>
-
-
-				<LinearLayout
-					android:layout_marginBottom="50dp"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:orientation="horizontal"
-					android:gravity="center">
-
-					<Button
-						android:onClick="pc"
-						android:layout_width="150dp"
-						android:layout_height="40dp"
-						android:text="PC 버전 GITHUB"
-						android:textColor="@color/white"
-						android:background="@drawable/button"
-						android:layout_margin="10dp"
-						/>
-
-					<Button
-						android:onClick="android"
-						android:layout_width="150dp"
-						android:layout_height="40dp"
-						android:text="ANDROID 버전 GITHUB"
-						android:textColor="@color/white"
-						android:background="@drawable/button"
-						android:layout_margin="10dp"
-						/>
-
-				</LinearLayout>
-
 
 			</LinearLayout>
 
 		</LinearLayout>
-
 	</ScrollView>
-    
+
 </LinearLayout>

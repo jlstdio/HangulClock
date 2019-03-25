@@ -5,13 +5,47 @@
     <color name="colorAccent">#FF4081</color>
     <color name="whitegray">#2843465a</color>
     <color name="black">#000000</color>
+    <color name="lightblack">#2d2d2d</color>
     <color name="white">#ffffff</color>
     <color name="sapcedark">#081528</color>
     <color name="sapcelightdark">#082f44</color>
-    <color name="pink">#d070a3</color>
-    <color name="bluegreen">#62a49d</color>
-    <color name="green">#95d365</color>
+    <color name="lightgray">#eef0f1</color>
+    <color name="applelikeblack">#d2b4b4b4</color>
+
     <color name="red">#ca4833</color>
-    <color name="orange">#e8be58</color>
-    <color name="darkblue">#40a1f8</color>
+    <color name="redd">#d76350</color>
+    <color name="reddd">#f56750</color>
+    <color name="pink">#d070a3</color>
+    <color name="pinkk">#fd93cb</color>
+
+    <color name="orange">#f4b212</color>
+    <color name="orangee">#f2b728</color>
+    <color name="orangeee">#e8be58</color>
+    <color name="yellow">#edce1d</color>
+    <color name="yelloww">#f5e067</color>
+
+    <color name="green">#35ba0d</color>
+    <color name="greenn">#73ca2f</color>
+    <color name="greennn">#95d365</color>
+    <color name="bluegreen">#62a49d</color>
+    <color name="bluegreenn">#89d7cf</color>
+
+    <color name="navy">#113470</color>
+    <color name="navyy">#164594</color>
+    <color name="darkblue">#12538f</color>
+    <color name="blue">#286dc9</color>
+    <color name="bluee">#3c88ec</color>
+
+    <color name="violet">#260d71</color>
+    <color name="violett">#4620b7</color>
+    <color name="violettt">#5f3ace</color>
+    <color name="violetttt">#7c5fd1</color>
+    <color name="violettttt">#9782d7</color>
+
+    <color name="claret">#540017</color>
+    <color name="clarett">#874054</color>
+    <color name="clarettt">#99173b</color>
+    <color name="wine">#ac2248</color>
+    <color name="redishpink">#e2436f</color>
+
 </resources>
