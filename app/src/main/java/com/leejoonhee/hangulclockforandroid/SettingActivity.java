@@ -1,24 +1,23 @@
 package com.leejoonhee.hangulclockforandroid;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.app.Activity;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.leejoonhee.hangulclockforandroid.lockscreen.lockset;
 
 public class SettingActivity extends AppCompatActivity
 {
-
     SharedPreferences sets;
 
     LinearLayout image1;
@@ -27,7 +26,6 @@ public class SettingActivity extends AppCompatActivity
     LinearLayout image4;
 
     TextView sentence;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -45,9 +43,15 @@ public class SettingActivity extends AppCompatActivity
         sentence = findViewById(R.id.sentence);
 
         sets = getSharedPreferences("usersets", Activity.MODE_PRIVATE); //MainActivity가 꺼져도 NewAppWidget에서 값을 받아 올 수 있도록 SharedPreference를 사용하였습니다
-        sentence.setText(sets.getString("title", "receivingfail"));
+        sentence.setText(sets.getString("title", "설정이 필요합니다"));
 
-        if (sets.getInt("color", 0) == 1){
+        String str = sets.getString("title", "설정이필요합니다");
+
+        if(str.equals("**weather**")){
+            sentence.setText(MainActivity.weathersaved);
+        }
+
+        if (sets.getInt("color", 0) == 1 || sets.getInt("color", 0) == 0){
             image1.setBackgroundColor(getResources().getColor(R.color.white));
             image2.setBackgroundColor(getResources().getColor(R.color.white));
             image3.setBackgroundColor(getResources().getColor(R.color.white));
@@ -691,10 +695,7 @@ public class SettingActivity extends AppCompatActivity
 
     public void sentence(View V){ startActivity(new Intent(this, SentenceActivity.class)); }
 
-    public void weather(View V){
-        changeView(3) ;
-        sentence.setText("날씨정보를 설정해주세요");
-    }
+    public void weather(View V){ startActivity(new Intent(this, WeatherSetting.class)); }
 
     public void shortcut(View V){
         changeView(4) ;

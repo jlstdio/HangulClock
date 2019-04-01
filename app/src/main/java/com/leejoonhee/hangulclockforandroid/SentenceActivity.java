@@ -25,11 +25,16 @@ public class SentenceActivity extends AppCompatActivity {
     }
 
     public void save(View V){
-
         String word = editsentence.getText().toString();
 
         SharedPreferences.Editor editor = sets.edit();
         editor.putString("title", word); //ID가"color"인 sharedpreference에 정수 "1"를 저장합니다
+        editor.commit();
+    }
+
+    public void weatheruse(View v) {
+        SharedPreferences.Editor editor = sets.edit();
+        editor.putString("title", "**weather**");
         editor.commit();
     }
 }

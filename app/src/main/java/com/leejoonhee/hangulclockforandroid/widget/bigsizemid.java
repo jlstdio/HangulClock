@@ -9,15 +9,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.view.View;
 import android.widget.RemoteViews;
-import android.widget.TextView;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.leejoonhee.hangulclockforandroid.MainActivity;
 import com.leejoonhee.hangulclockforandroid.R;
-
-import org.w3c.dom.Text;
 
 import java.util.Calendar;
 
@@ -84,6 +79,14 @@ public class bigsizemid extends AppWidgetProvider {
             int min = now.get(Calendar.MINUTE); //"분"은 min에 저장합니다
 
             views.setTextViewText(R.id.textView1, sets.getString("title", "언젠가는 빛이 될 당신"));//Onupdate에서 받은 sentence의 값을 new_app_widget의 textview1의 ID를 가진 object에 올려줍니다
+
+            String str = sets.getString("title", "언젠가는 빛이 될 당신");
+
+            if(str.contains("**weather**")){
+                new MainActivity.ReceiveShortWeather().execute();
+                String inst = MainActivity.weathersaved.replaceAll("강수량","");
+                views.setTextViewText(R.id.textView1, inst);
+            }
 
             //textcolorselcetion이 1이라면..
             if (sets.getInt("color", 0) == 1){

@@ -16,7 +16,10 @@ import com.leejoonhee.hangulclockforandroid.R;
 
 import java.util.Calendar;
 
-public class bigsizefull extends AppWidgetProvider {
+/**
+ * Implementation of App Widget functionality.
+ */
+public class midsizesmall extends AppWidgetProvider {
 
     private static final int WIDGET_UPDATE_INTERVAL = 1000; //초당 한번씩 update를 합니다
 
@@ -63,7 +66,7 @@ public class bigsizefull extends AppWidgetProvider {
         {
             int appWidgetId = appWidgetIds[i];
 
-            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.bigsizefull);//new_app_widget의 objects들의 값을 변경하기위함입니다
+            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.midsizesmall);//new_app_widget의 objects들의 값을 변경하기위함입니다
 
             if(timer.getInt("min", 0) != 0){
                 views.setTextViewText(R.id.textView1, "타이머 시작하기");
@@ -325,7 +328,6 @@ public class bigsizefull extends AppWidgetProvider {
                 views.setImageViewResource(R.id.imageView5, R.color.violettttt);
                 views.setTextColor(R.id.textView1, Color.WHITE);
             }
-
 
             views.setTextColor(R.id.aa, Color.argb(65, 67, 70, 90));
             views.setTextColor(R.id.ab, Color.argb(65, 67, 70, 90));
@@ -1438,6 +1440,5 @@ public class bigsizefull extends AppWidgetProvider {
             mManager.cancel(mSender);
         }
     }
-
 }
 

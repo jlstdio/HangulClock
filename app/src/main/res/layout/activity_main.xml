@@ -581,22 +581,13 @@
 					</LinearLayout>
 
 					<TextView
-						android:gravity="center"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:textSize="13dp"
-						android:textColor="@color/white"
-						android:text="">
-
-					</TextView>
-
-					<TextView
+						android:id="@+id/weather"
 						android:gravity="center"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:textSize="15dp"
 						android:textColor="@color/white"
-						android:text="">
+						android:text="Loading">
 
 					</TextView>
 

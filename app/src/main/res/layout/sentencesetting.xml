@@ -24,6 +24,32 @@
         android:background="@drawable/roundbluegreen"/>
 
     <LinearLayout
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:text="        문구대신 날씨정보 사용하기        "
+            android:background="@drawable/roundorange"
+            android:onClick="weatheruse"
+            android:buttonTint="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_margin="10dp"
+        android:text="[설정에서 날씨 정보를 나타낼 위치 저장하세요]"/>
+
+    <LinearLayout
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"

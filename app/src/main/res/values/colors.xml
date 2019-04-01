@@ -11,6 +11,7 @@
     <color name="sapcelightdark">#082f44</color>
     <color name="lightgray">#eef0f1</color>
     <color name="applelikeblack">#d2b4b4b4</color>
+    <color name="transparent">#00ffffff</color>
 
     <color name="red">#ca4833</color>
     <color name="redd">#d76350</color>

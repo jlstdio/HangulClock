@@ -38,8 +38,8 @@
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textColor="@color/white"
-                android:textSize="26dp"
-                android:text="한"/>
+                android:textSize="23dp"
+                android:text="색"/>
 
             <TextView
                 android:layout_marginLeft="10dp"
@@ -74,8 +74,8 @@
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textColor="@color/white"
-                android:textSize="26dp"
-                android:text="글"/>
+                android:textSize="23dp"
+                android:text="문"/>
 
             <TextView
                 android:layout_marginLeft="10dp"
@@ -100,6 +100,43 @@
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:gravity="center_vertical"
+            android:onClick="weather">
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/roundorange"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="23dp"
+                android:text="날"/>
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:textSize="15dp"
+                android:textColor="@color/lightblack"
+                android:text="날씨 설정"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:background="@color/lightblack"
+            android:layout_height="1dp" />
+
+
+        <LinearLayout
+            android:layout_margin="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:gravity="center_vertical"
             android:onClick="lab">
 
             <TextView
@@ -110,8 +147,8 @@
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textColor="@color/white"
-                android:textSize="26dp"
-                android:text="짱"/>
+                android:textSize="23dp"
+                android:text="실"/>
 
             <TextView
                 android:layout_marginLeft="10dp"
@@ -146,7 +183,7 @@
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textColor="@color/white"
-                android:textSize="26dp"
+                android:textSize="23dp"
                 android:text="ㅠ"/>
 
             <TextView
