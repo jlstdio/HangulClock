@@ -3,6 +3,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:ads="http://schemas.android.com/tools"
 	android:orientation="vertical"
 	android:background="@color/lightgray">
 
@@ -582,12 +583,12 @@
 
 					<TextView
 						android:id="@+id/weather"
-						android:gravity="center"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:textSize="15dp"
+						android:gravity="center"
+						android:text="Loading"
 						android:textColor="@color/white"
-						android:text="Loading">
+						android:textSize="15dp">
 
 					</TextView>
 
@@ -600,24 +601,25 @@
 				android:orientation="vertical">
 
 				<TextView
-					android:gravity="center"
-					android:layout_marginTop="20dp"
-					android:layout_marginLeft="20dp"
-					android:layout_marginBottom="20dp"
-					android:layout_marginRight="20dp"
+					android:id="@+id/txtText"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:textSize="20dp"
+					android:layout_marginBottom="20dp"
+					android:layout_marginLeft="20dp"
+					android:layout_marginRight="20dp"
+					android:layout_marginTop="20dp"
+					android:gravity="center"
+					android:text="오늘도 수고한 당신 어서오세요"
 					android:textColor="@color/lightblack"
-					android:text="오늘도 수고한 당신 어서오세요"/>
+					android:textSize="15dp" />
 
 				<android.support.v7.widget.CardView
 					android:layout_width="match_parent"
 					android:layout_height="100dp"
 					android:layout_margin="10dp"
-					app:cardCornerRadius="15dp"
+					android:orientation="vertical"
 					android:theme="@style/Theme.AppCompat.Light"
-					android:orientation="vertical">
+					app:cardCornerRadius="15dp">
 
 					<LinearLayout
 						android:layout_width="match_parent"
@@ -625,32 +627,32 @@
 						android:orientation="vertical">
 
 						<TextView
-							android:layout_marginTop="12dp"
-							android:layout_marginLeft="12dp"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
+							android:layout_marginLeft="12dp"
+							android:layout_marginTop="12dp"
 							android:layout_weight="1"
-							android:text="지금 한글시계는"/>
+							android:text="지금 한글시계는" />
 
 						<LinearLayout
-							android:layout_margin="5dp"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
+							android:layout_margin="5dp"
 							android:layout_weight="3">
 
 							<TextView
+								android:id="@+id/download"
 								android:layout_width="match_parent"
 								android:layout_height="match_parent"
 								android:gravity="center"
-								android:text="loading"
-								android:id="@+id/download"/>
+								android:text="loading" />
 
 						</LinearLayout>
 
 					</LinearLayout>
 
 				</android.support.v7.widget.CardView>
-				
+
 				<LinearLayout
 					android:layout_width="match_parent"
 					android:layout_height="100dp"
@@ -658,40 +660,40 @@
 					android:orientation="horizontal">
 
 					<android.support.v7.widget.CardView
-						android:layout_marginRight="10dp"
-					android:layout_width="0dp"
-					android:layout_height="match_parent"
-					android:layout_weight="2"
-					app:cardCornerRadius="15dp"
-					android:theme="@style/Theme.AppCompat.Light"
-					android:orientation="vertical">
-
-					<LinearLayout
-						android:layout_width="match_parent"
+						android:layout_width="0dp"
 						android:layout_height="match_parent"
-						android:orientation="vertical">
-
-						<TextView
-							android:layout_marginTop="12dp"
-							android:layout_marginLeft="12dp"
-							android:layout_width="match_parent"
-							android:layout_height="0dp"
-							android:layout_weight="1"
-							android:text="업데이트 상황"/>
+						android:layout_marginRight="10dp"
+						android:layout_weight="2"
+						android:orientation="vertical"
+						android:theme="@style/Theme.AppCompat.Light"
+						app:cardCornerRadius="15dp">
 
 						<LinearLayout
-							android:layout_margin="5dp"
 							android:layout_width="match_parent"
-							android:layout_height="0dp"
-							android:layout_weight="3">
+							android:layout_height="match_parent"
+							android:orientation="vertical">
 
 							<TextView
-								android:onClick="update"
 								android:layout_width="match_parent"
-								android:layout_height="match_parent"
-								android:gravity="center"
-								android:text="loading"
-								android:id="@+id/version"/>
+								android:layout_height="0dp"
+								android:layout_marginLeft="12dp"
+								android:layout_marginTop="12dp"
+								android:layout_weight="1"
+								android:text="업데이트 상황" />
+
+							<LinearLayout
+								android:layout_width="match_parent"
+								android:layout_height="0dp"
+								android:layout_margin="5dp"
+								android:layout_weight="3">
+
+								<TextView
+									android:id="@+id/version"
+									android:layout_width="match_parent"
+									android:layout_height="match_parent"
+									android:gravity="center"
+									android:onClick="update"
+									android:text="loading" />
 
 							</LinearLayout>
 
@@ -700,57 +702,57 @@
 					</android.support.v7.widget.CardView>
 
 					<android.support.v7.widget.CardView
-						android:layout_marginLeft="10dp"
 						android:layout_width="0dp"
 						android:layout_height="match_parent"
+						android:layout_gravity="center"
+						android:layout_marginLeft="10dp"
 						android:layout_weight="1.3"
-						app:cardCornerRadius="15dp"
 						android:theme="@style/Theme.AppCompat.Light"
-						android:layout_gravity="center">
-						
+						app:cardCornerRadius="15dp">
+
 						<LinearLayout
-							android:layout_margin="8dp"
 							android:layout_width="match_parent"
 							android:layout_height="match_parent"
+							android:layout_margin="8dp"
 							android:orientation="vertical">
 
 							<LinearLayout
-								android:layout_marginBottom="5dp"
-								android:layout_weight="4"
 								android:layout_width="match_parent"
-								android:layout_height="0dp">
+								android:layout_height="0dp"
+								android:layout_marginBottom="5dp"
+								android:layout_weight="4">
 
 								<Button
-									android:layout_marginLeft="5dp"
-									android:layout_marginRight="5dp"
 									android:layout_width="match_parent"
 									android:layout_height="match_parent"
+									android:layout_marginLeft="5dp"
+									android:layout_marginRight="5dp"
 									android:background="@drawable/roundbluegreen"
-									android:textColor="@color/white"
 									android:onClick="help"
-									android:textStyle="bold"
-									android:text="도움말"/>
+									android:text="도움말"
+									android:textColor="@color/white"
+									android:textStyle="bold" />
 
 							</LinearLayout>
 
 							<LinearLayout
-								android:layout_weight="4"
 								android:layout_width="match_parent"
-								android:layout_height="0dp">
-								
+								android:layout_height="0dp"
+								android:layout_weight="4">
+
 								<Button
-									android:layout_marginLeft="5dp"
-									android:layout_marginRight="5dp"
 									android:layout_width="match_parent"
 									android:layout_height="match_parent"
+									android:layout_marginLeft="5dp"
+									android:layout_marginRight="5dp"
 									android:background="@drawable/roundbluegreen"
-									android:textColor="@color/white"
-									android:textStyle="bold"
 									android:onClick="setting"
-									android:text="설정하기"/>
+									android:text="설정하기"
+									android:textColor="@color/white"
+									android:textStyle="bold" />
 
 							</LinearLayout>
-							
+
 						</LinearLayout>
 
 					</android.support.v7.widget.CardView>
@@ -761,9 +763,9 @@
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_margin="10dp"
-					app:cardCornerRadius="15dp"
+					android:orientation="vertical"
 					android:theme="@style/Theme.AppCompat.Light"
-					android:orientation="vertical">
+					app:cardCornerRadius="15dp">
 
 					<LinearLayout
 						android:layout_width="match_parent"
@@ -771,9 +773,9 @@
 						android:orientation="vertical">
 
 						<LinearLayout
-							android:layout_marginTop="20dp"
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
+							android:layout_marginTop="20dp"
 							android:gravity="center"
 							android:orientation="vertical">
 
@@ -782,24 +784,27 @@
 								android:layout_height="match_parent"
 								android:text="누구나"
 								android:textColor="@color/black"
-								android:textSize="30dp"/>
+								android:textSize="30dp" />
+
 							<TextView
 								android:layout_width="wrap_content"
 								android:layout_height="match_parent"
 								android:text="관심이 있다면."
 								android:textColor="@color/black"
-								android:textSize="30dp"/>
+								android:textSize="30dp" />
+
 							<LinearLayout
 								android:layout_width="match_parent"
 								android:layout_height="10dp">
 
 							</LinearLayout>
+
 							<TextView
 								android:layout_width="wrap_content"
 								android:layout_height="match_parent"
 								android:text="오픈소스 프로젝트"
 								android:textColor="@color/black"
-								android:textSize="30dp"/>
+								android:textSize="30dp" />
 
 							<LinearLayout
 								android:layout_width="match_parent"
@@ -809,31 +814,29 @@
 
 
 							<LinearLayout
-								android:layout_marginBottom="20dp"
 								android:layout_width="match_parent"
 								android:layout_height="wrap_content"
-								android:orientation="horizontal"
-								android:gravity="center">
+								android:layout_marginBottom="20dp"
+								android:gravity="center"
+								android:orientation="horizontal">
 
 								<Button
+									android:layout_width="150dp"
+									android:layout_height="40dp"
+									android:layout_margin="10dp"
+									android:background="@drawable/button"
 									android:onClick="pc"
-									android:layout_width="150dp"
-									android:layout_height="40dp"
 									android:text="PC 버전 GITHUB"
-									android:textColor="@color/white"
-									android:background="@drawable/button"
-									android:layout_margin="10dp"
-									/>
+									android:textColor="@color/white" />
 
 								<Button
-									android:onClick="android"
 									android:layout_width="150dp"
 									android:layout_height="40dp"
-									android:text="ANDROID 버전 GITHUB"
-									android:textColor="@color/white"
-									android:background="@drawable/button"
 									android:layout_margin="10dp"
-									/>
+									android:background="@drawable/button"
+									android:onClick="android"
+									android:text="ANDROID 버전 GITHUB"
+									android:textColor="@color/white" />
 
 							</LinearLayout>
 
@@ -843,51 +846,72 @@
 
 				</android.support.v7.widget.CardView>
 
-				<LinearLayout
-					android:layout_margin="10dp"
+				<android.support.v7.widget.CardView
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_margin="10dp"
+					android:orientation="vertical"
+					android:theme="@style/Theme.AppCompat.Light"
+					app:cardCornerRadius="15dp">
+
+					<com.google.android.gms.ads.AdView
+						xmlns:ads="http://schemas.android.com/apk/res-auto"
+						android:id="@+id/adView"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_gravity="center"
+						ads:adSize="BANNER"
+						ads:adUnitId="ca-app-pub-8081631582008293/5576438546">
+					</com.google.android.gms.ads.AdView>
+
+				</android.support.v7.widget.CardView>
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_margin="10dp"
 					android:orientation="vertical">
 
 					<TextView
-						android:layout_marginLeft="3dp"
-						android:textColor="@color/black"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:text="개발자 정보" />
+						android:layout_marginLeft="3dp"
+						android:text="개발자 정보"
+						android:textColor="@color/black" />
 
 					<TextView
-						android:layout_marginLeft="3dp"
-						android:textColor="@color/black"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
+						android:layout_marginLeft="3dp"
 						android:layout_marginTop="5dp"
-						android:text="메인 코딩 : Joonhee Lee(대륜고)" />
+						android:text="메인 코딩 : Joonhee Lee(대륜고)"
+						android:textColor="@color/black" />
 
 					<TextView
-						android:layout_marginLeft="3dp"
-						android:textColor="@color/black"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
+						android:layout_marginLeft="3dp"
 						android:layout_marginTop="5dp"
-						android:text="초반 코드 개선 : Yongmin Yoo(성보고)" />
+						android:text="초반 코드 개선 : Yongmin Yoo(성보고)"
+						android:textColor="@color/black" />
 
 					<TextView
-						android:layout_marginLeft="3dp"
-						android:textColor="@color/black"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
+						android:layout_marginLeft="3dp"
 						android:layout_marginTop="5dp"
-						android:text="한글시계 홈페이지 : https://hangulclock.today" />
+						android:text="한글시계 홈페이지 : https://hangulclock.today"
+						android:textColor="@color/black" />
 
 					<TextView
-						android:layout_marginLeft="3dp"
-						android:textColor="@color/black"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:layout_marginBottom="5dp"
+						android:layout_marginLeft="3dp"
 						android:layout_marginTop="5dp"
-						android:text="Copyright © 2018 Lee Joon Hee(neo81389). Released under the GNU General Public License v3." />
+						android:text="Copyright © 2018 Lee Joon Hee(neo81389). Released under the GNU General Public License v3."
+						android:textColor="@color/black" />
 				</LinearLayout>
 
 			</LinearLayout>

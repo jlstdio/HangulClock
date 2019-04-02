@@ -1,4 +1,4 @@
-package com.leejoonhee.hangulclockforandroid;
+package com.leejoonhee.hangulclockforandroid.Service.Weather;
 
 public class WeatherInfo {
     private String hour;  // 시간

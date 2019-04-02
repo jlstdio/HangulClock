@@ -1,4 +1,4 @@
-package com.leejoonhee.hangulclockforandroid;
+package com.leejoonhee.hangulclockforandroid.Service;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,6 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.leejoonhee.hangulclockforandroid.MainActivity;
+import com.leejoonhee.hangulclockforandroid.R;
+import com.leejoonhee.hangulclockforandroid.Service.Weather.WeatherSetting;
 import com.leejoonhee.hangulclockforandroid.lockscreen.lockset;
 
 public class SettingActivity extends AppCompatActivity

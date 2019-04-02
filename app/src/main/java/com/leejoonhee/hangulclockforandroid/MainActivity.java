@@ -10,11 +10,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.leejoonhee.hangulclockforandroid.Service.HelpActivity;
+import com.leejoonhee.hangulclockforandroid.Service.SettingActivity;
+import com.leejoonhee.hangulclockforandroid.Service.Weather.WeatherInfo;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
@@ -32,16 +37,23 @@ public class MainActivity extends AppCompatActivity
 
 	DatabaseReference download = rootRef.child("downloads");
 	DatabaseReference version = rootRef.child("version");
+	DatabaseReference notice = rootRef.child("notice");
 
 	TextView mversion;
 	TextView mdownloads;
 	TextView sentence;
 
-	SharedPreferences sets;
+	static SharedPreferences sets;
 
 	static public String weathersaved = "No data";
 
 	static TextView weathertext;
+
+	static String data = "";
+
+	TextView txtText;
+
+	AdView mAdView;
 
 	double RE = 6371.00877; // 지구 반경(km)
 	double GRID = 5.0; // 격자 간격(km)
@@ -68,10 +80,12 @@ public class MainActivity extends AppCompatActivity
 
 		weathersaved = sets.getString("weatherurl", "날씨 설정이 필요합니다");
 
+		txtText = (TextView)findViewById(R.id.txtText);
+
 		new ReceiveShortWeather().execute();
 
 		if(str.equals("**weather**")){
-			sentence.setText(weathersaved);
+			sentence.setText(data);
 		}
 
 		weathertext = (TextView)findViewById(R.id.weather);
@@ -79,6 +93,15 @@ public class MainActivity extends AppCompatActivity
 		mversion = (TextView)findViewById(R.id.version);
 		mdownloads = (TextView)findViewById(R.id.download);
 
+		mAdView = (AdView) findViewById(R.id.adView);
+
+		AdView adView = new AdView(this);
+		adView.setAdSize(AdSize.BANNER);
+		adView.setAdUnitId("ca-app-pub-8081631582008293/5576438546");
+		/*
+			Intent intent = new Intent(this, PopupActivity.class);
+			startActivity(intent);
+		*/
 	}
 	
 	public void setting(View v){
@@ -109,6 +132,19 @@ public class MainActivity extends AppCompatActivity
 	@Override
 	protected void onStart(){
 		super.onStart();
+
+		notice.addValueEventListener(new ValueEventListener() {
+			@Override
+			public void onDataChange(DataSnapshot dataSnapshot) {
+				String text = dataSnapshot.getValue(String.class);
+				txtText.setText(text);
+			}
+
+			@Override
+			public void onCancelled(DatabaseError databaseError) {
+
+			}
+		});
 
 		download.addValueEventListener(new ValueEventListener() {
 			@Override
@@ -150,7 +186,7 @@ public class MainActivity extends AppCompatActivity
 
 		protected Long doInBackground(URL... urls) {
 
-			String url = "http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=1159068000";
+			String url = sets.getString("weatherurl", "http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=1159068000");
 
 			OkHttpClient client = new OkHttpClient();
 
@@ -171,7 +207,6 @@ public class MainActivity extends AppCompatActivity
 		}
 
 		public void onPostExecute(Long result) {
-			String data = "";
 
 			data = shortWeathers.get(0).getTemp() + "도 . " +
 					shortWeathers.get(0).getWfKor() + " . 강수량 " +

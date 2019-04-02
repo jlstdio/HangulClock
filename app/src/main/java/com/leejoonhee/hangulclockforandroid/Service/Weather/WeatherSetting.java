@@ -1,4 +1,4 @@
-package com.leejoonhee.hangulclockforandroid;
+package com.leejoonhee.hangulclockforandroid.Service.Weather;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.leejoonhee.hangulclockforandroid.R;
 
 public class WeatherSetting extends AppCompatActivity {
 
@@ -38,6 +41,9 @@ public class WeatherSetting extends AppCompatActivity {
 
         SharedPreferences.Editor editor = sets.edit();
         editor.putString("weatherurl",str);
+        editor.commit();
+        Toast toast = Toast.makeText(getApplicationContext(),"Url을 저장하였습니다", Toast.LENGTH_SHORT);
+        toast.show();
 
     }
 }
