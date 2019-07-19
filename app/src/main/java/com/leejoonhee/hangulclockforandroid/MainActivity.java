@@ -1,20 +1,25 @@
 package com.leejoonhee.hangulclockforandroid;
 
 import android.app.Activity;
+<<<<<<< HEAD
 import android.content.Context;
 import android.content.DialogInterface;
+=======
+>>>>>>> tempmaster
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
+=======
+>>>>>>> tempmaster
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -78,6 +83,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         sentence = findViewById(R.id.sentence);
+<<<<<<< HEAD
 
 		sets = getSharedPreferences("usersets", Activity.MODE_PRIVATE); //MainActivity가 꺼져도 NewAppWidget에서 값을 받아 올 수 있도록 SharedPreference를 사용하였습니다
 		sentence.setText(sets.getString("title", "설정이 필요합니다"));
@@ -131,6 +137,34 @@ public class MainActivity extends AppCompatActivity
 					.create()
 					.show();
 		}
+=======
+
+		sets = getSharedPreferences("usersets", Activity.MODE_PRIVATE); //MainActivity가 꺼져도 NewAppWidget에서 값을 받아 올 수 있도록 SharedPreference를 사용하였습니다
+		sentence.setText(sets.getString("title", "설정이 필요합니다"));
+
+		String str = sets.getString("title", "설정이필요합니다");
+
+		weathersaved = sets.getString("weatherurl", "날씨 설정이 필요합니다");
+
+		txtText = (TextView)findViewById(R.id.txtText);
+
+		new ReceiveShortWeather().execute();
+
+		if(str.equals("**weather**")){
+			sentence.setText(data);
+		}
+
+		weathertext = (TextView)findViewById(R.id.weather);
+
+		mversion = (TextView)findViewById(R.id.version);
+		mdownloads = (TextView)findViewById(R.id.download);
+
+		mAdView = (AdView) findViewById(R.id.adView);
+
+		AdView adView = new AdView(this);
+		adView.setAdSize(AdSize.BANNER);
+		adView.setAdUnitId("ca-app-pub-8081631582008293/5576438546");
+>>>>>>> tempmaster
 		/*
 			Intent intent = new Intent(this, PopupActivity.class);
 			startActivity(intent);
