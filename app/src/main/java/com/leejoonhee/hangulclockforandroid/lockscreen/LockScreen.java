@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
 import android.provider.Settings;
 
 public class LockScreen {
-    private static LockScreen singleton;
+    public static LockScreen singleton;
     Context context;
     boolean disableHomeButton=false;
 
@@ -34,7 +34,7 @@ public class LockScreen {
 
     }
 
-    private void showSettingAccesability(){
+    public void showSettingAccesability(){
         if(!isMyServiceRunning(LockWindowAccessibilityService.class)) {
             Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
             context.startActivity(intent);
@@ -64,7 +64,7 @@ public class LockScreen {
             return false;
         }
     }
-    private boolean isMyServiceRunning(Class<?> serviceClass) {
+    public boolean isMyServiceRunning(Class<?> serviceClass) {
         ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
             if (serviceClass.getName().equals(service.service.getClassName())) {

@@ -10,7 +10,7 @@
     android:gravity="center"
     android:resizeMode="horizontal|vertical"
     tools:context=".lockscreen.LockScreenActivity"
-    android:background="@drawable/wallpaper">
+    android:background="@drawable/wall">
 
     <TextView
         android:gravity="center"

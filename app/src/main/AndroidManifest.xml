@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.leejoonhee.hangulclockforandroid">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <uses-permission android:name="android.permission.GET_TASKS" />
@@ -11,9 +13,11 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.PHONE_STATE_STATE" />
-    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE"
+    <uses-permission
+        android:name="android.permission.BIND_ACCESSIBILITY_SERVICE"
         tools:ignore="ProtectedPermissions" />
-    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:name=".lockscreen.LockApplication"
@@ -22,79 +26,108 @@
         android:label="HangulClock"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme">
+            <meta-data
+                android:name="com.google.android.gms.version"
+                android:value="@integer/google_play_services_version" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SettingActivity" />
-        <activity android:name=".HelpActivity" />
+        <activity android:name=".Service.SettingActivity" />
+        <activity android:name=".Service.HelpActivity" />
+        <activity android:name=".Service.SentenceActivity" />
+        <activity android:name=".Service.Weather.WeatherSetting" />
 
         <receiver
             android:name=".widget.bigsizefull"
             android:label="4X4 BIG">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.tistory.code-soo.android.appwidget.CLICK" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/bigsizefull_info" />
         </receiver>
-
         <receiver
             android:name=".widget.bigsizesmall"
             android:label="4X4 SMALL">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.tistory.code-soo.android.appwidget.CLICK" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/bigsizesmall_info" />
         </receiver>
-
-        <receiver android:name=".widget.bigsizemid"
+        <receiver
+            android:name=".widget.bigsizemid"
             android:label="4X4 MID">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.tistory.code-soo.android.appwidget.CLICK" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/bigsizemid_info" />
         </receiver>
-
-        <receiver android:name=".widget.midsize"
+        <receiver
+            android:name=".widget.midsizefull"
             android:label="3X3 BIG">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.tistory.code-soo.android.appwidget.CLICK" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/midsize_info" />
         </receiver>
+        <receiver
+            android:name=".widget.midsizesmall"
+            android:label="3X3 SMALL">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/midsizesmall" />
+        </receiver>
+
+        <receiver android:name=".widget.fatversion"
+            android:label="2X4 FAT">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/fatversion_info" />
+        </receiver>
 
         <activity
             android:name=".lockscreen.LockScreenActivity"
-            android:showOnLockScreen="true"
             android:launchMode="singleInstance"
-            android:theme="@style/AppThemeNoAction">
+            android:showOnLockScreen="true"
+            android:theme="@style/AppThemeNoAction" />
 
-        </activity>
-        <activity android:name=".lockscreen.lockset"
+        <activity
+            android:name=".lockscreen.lockset"
             android:excludeFromRecents="true"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance" />
 
-        </activity>
-
-        <service android:name=".lockscreen.LockscreenService" ></service>
+        <service android:name=".lockscreen.LockscreenService" />
 
         <service
             android:name=".lockscreen.LockWindowAccessibilityService"
@@ -107,8 +140,19 @@
 
             <meta-data
                 android:name="android.accessibilityservice"
-                android:resource="@xml/accessibilityservice"/>
+                android:resource="@xml/accessibilityservice" />
         </service>
 
+        <activity
+            android:name=".Service.PopupActivity"
+            android:theme="@android:style/Theme.Dialog" />
+
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+
+
     </application>
+
 </manifest>

@@ -12,6 +12,7 @@ import android.os.IBinder;
 import android.util.Log;
 
 import com.leejoonhee.hangulclockforandroid.R;
+import com.leejoonhee.hangulclockforandroid.lockscreen.lockset;
 
 
 public class LockscreenService extends Service {

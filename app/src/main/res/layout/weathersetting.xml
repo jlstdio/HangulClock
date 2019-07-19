@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightgray"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="날씨 기능은 베타 기능입니다."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/lightblack"/>
+
+    <TextView
+        android:gravity="center"
+        android:text="다소 불편하시더라도 아래 절차를 이용해주셔야해요 ㅠㅠ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/lightblack"/>
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:text="1.아래 버튼 눌러 기상청 들어가기"/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:text="2. 아래로 내려 [동네예보 > 시간별예보] 찾기"/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:text="3. 거주지 설정 하기 (검색 버튼꼭 누르고 넘어가야함)"/>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:text="4. [RSS]버튼 누른 후 URL 저장하기"/>
+
+        <Button
+            android:onClick="gotosite"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundorange"
+            android:text="    기상청 들어가기    "/>
+
+        <EditText
+            android:id="@+id/url"
+            android:layout_margin="10dp"
+            android:hint="저장한 URL을 붙여넣기 해주세요"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/orange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:onClick="saveurl"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundorange"
+            android:text="    저장하기    "/>
+    </LinearLayout>
+
+
+</LinearLayout>

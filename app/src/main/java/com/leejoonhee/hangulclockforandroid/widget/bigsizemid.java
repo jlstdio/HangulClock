@@ -9,15 +9,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.view.View;
 import android.widget.RemoteViews;
-import android.widget.TextView;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.leejoonhee.hangulclockforandroid.MainActivity;
 import com.leejoonhee.hangulclockforandroid.R;
-
-import org.w3c.dom.Text;
 
 import java.util.Calendar;
 
@@ -85,65 +80,253 @@ public class bigsizemid extends AppWidgetProvider {
 
             views.setTextViewText(R.id.textView1, sets.getString("title", "언젠가는 빛이 될 당신"));//Onupdate에서 받은 sentence의 값을 new_app_widget의 textview1의 ID를 가진 object에 올려줍니다
 
+            String str = sets.getString("title", "언젠가는 빛이 될 당신");
+
+            if(str.contains("**weather**")){
+                new MainActivity.ReceiveShortWeather().execute();
+                String inst = MainActivity.weathersaved.replaceAll("강수량","");
+                views.setTextViewText(R.id.textView1, inst);
+            }
+
             //textcolorselcetion이 1이라면..
-            if(sets.getInt("color", 1) == 1){
-                views.setTextColor(R.id.textView1, Color.WHITE);
+            if (sets.getInt("color", 0) == 1){
                 views.setImageViewResource(R.id.imageView, R.color.white);
                 views.setImageViewResource(R.id.imageView2, R.color.white);
                 views.setImageViewResource(R.id.imageView4, R.color.white);
                 views.setImageViewResource(R.id.imageView5, R.color.white);
+                views.setTextColor(R.id.textView1, Color.WHITE);
             }
 
-            //textcolorselcetion이 2라면..
-            if(sets.getInt("color", 1) == 2){
-                views.setTextColor(R.id.textView1, Color.BLACK);
+            if(sets.getInt("color", 0) == 2){
                 views.setImageViewResource(R.id.imageView, R.color.black);
                 views.setImageViewResource(R.id.imageView2, R.color.black);
                 views.setImageViewResource(R.id.imageView4, R.color.black);
                 views.setImageViewResource(R.id.imageView5, R.color.black);
+                views.setTextColor(R.id.textView1, Color.WHITE);
             }
 
-            if(sets.getInt("color", 1) == 3){
-                views.setTextColor(R.id.textView1, Color.rgb(208, 112, 163));
-                views.setImageViewResource(R.id.imageView, R.color.pink);
-                views.setImageViewResource(R.id.imageView2, R.color.pink);
-                views.setImageViewResource(R.id.imageView4, R.color.pink);
-                views.setImageViewResource(R.id.imageView5, R.color.pink);
+            if(sets.getInt("color", 0) == 3){
+                views.setImageViewResource(R.id.imageView, R.color.claret);
+                views.setImageViewResource(R.id.imageView2, R.color.claret);
+                views.setImageViewResource(R.id.imageView4, R.color.claret);
+                views.setImageViewResource(R.id.imageView5, R.color.claret);
+                views.setTextColor(R.id.textView1, Color.WHITE);
             }
 
+            if(sets.getInt("color", 0) == 4){
+                views.setImageViewResource(R.id.imageView, R.color.clarett);
+                views.setImageViewResource(R.id.imageView2, R.color.clarett);
+                views.setImageViewResource(R.id.imageView4, R.color.clarett);
+                views.setImageViewResource(R.id.imageView5, R.color.clarett);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
 
-            if(sets.getInt("color", 1) == 4){
-                views.setTextColor(R.id.textView1, Color.rgb(202, 72, 51));
+            if(sets.getInt("color", 0) == 5){
+                views.setImageViewResource(R.id.imageView, R.color.clarettt);
+                views.setImageViewResource(R.id.imageView2, R.color.clarettt);
+                views.setImageViewResource(R.id.imageView4, R.color.clarettt);
+                views.setImageViewResource(R.id.imageView5, R.color.clarettt);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 6){
                 views.setImageViewResource(R.id.imageView, R.color.red);
                 views.setImageViewResource(R.id.imageView2, R.color.red);
                 views.setImageViewResource(R.id.imageView4, R.color.red);
                 views.setImageViewResource(R.id.imageView5, R.color.red);
+                views.setTextColor(R.id.textView1, Color.WHITE);
             }
 
+            if(sets.getInt("color", 0) == 7){
+                views.setImageViewResource(R.id.imageView, R.color.redd);
+                views.setImageViewResource(R.id.imageView2, R.color.redd);
+                views.setImageViewResource(R.id.imageView4, R.color.redd);
+                views.setImageViewResource(R.id.imageView5, R.color.redd);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
 
-            if(sets.getInt("color", 1) == 5){
-                views.setTextColor(R.id.textView1, Color.rgb(232, 190, 88));
+            if(sets.getInt("color", 0) == 8){
+                views.setImageViewResource(R.id.imageView, R.color.reddd);
+                views.setImageViewResource(R.id.imageView2, R.color.reddd);
+                views.setImageViewResource(R.id.imageView4, R.color.reddd);
+                views.setImageViewResource(R.id.imageView5, R.color.reddd);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 9){
+                views.setImageViewResource(R.id.imageView, R.color.pink);
+                views.setImageViewResource(R.id.imageView2, R.color.pink);
+                views.setImageViewResource(R.id.imageView4, R.color.pink);
+                views.setImageViewResource(R.id.imageView5, R.color.pink);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 10){
+                views.setImageViewResource(R.id.imageView, R.color.pinkk);
+                views.setImageViewResource(R.id.imageView2, R.color.pinkk);
+                views.setImageViewResource(R.id.imageView4, R.color.pinkk);
+                views.setImageViewResource(R.id.imageView5, R.color.pinkk);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 11){
                 views.setImageViewResource(R.id.imageView, R.color.orange);
                 views.setImageViewResource(R.id.imageView2, R.color.orange);
                 views.setImageViewResource(R.id.imageView4, R.color.orange);
                 views.setImageViewResource(R.id.imageView5, R.color.orange);
+                views.setTextColor(R.id.textView1, Color.WHITE);
             }
 
-            if(sets.getInt("color", 1) == 6){
-                views.setTextColor(R.id.textView1, Color.rgb(149, 211, 101));
+            if(sets.getInt("color", 0) == 12){
+                views.setImageViewResource(R.id.imageView, R.color.orangee);
+                views.setImageViewResource(R.id.imageView2, R.color.orangee);
+                views.setImageViewResource(R.id.imageView4, R.color.orangee);
+                views.setImageViewResource(R.id.imageView5, R.color.orangee);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 13){
+                views.setImageViewResource(R.id.imageView, R.color.orangeee);
+                views.setImageViewResource(R.id.imageView2, R.color.orangeee);
+                views.setImageViewResource(R.id.imageView4, R.color.orangeee);
+                views.setImageViewResource(R.id.imageView5, R.color.orangeee);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 14){
+                views.setImageViewResource(R.id.imageView, R.color.yellow);
+                views.setImageViewResource(R.id.imageView2, R.color.yellow);
+                views.setImageViewResource(R.id.imageView4, R.color.yellow);
+                views.setImageViewResource(R.id.imageView5, R.color.yellow);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 15){
+                views.setImageViewResource(R.id.imageView, R.color.yelloww);
+                views.setImageViewResource(R.id.imageView2, R.color.yelloww);
+                views.setImageViewResource(R.id.imageView4, R.color.yelloww);
+                views.setImageViewResource(R.id.imageView5, R.color.yelloww);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 16){
                 views.setImageViewResource(R.id.imageView, R.color.green);
                 views.setImageViewResource(R.id.imageView2, R.color.green);
                 views.setImageViewResource(R.id.imageView4, R.color.green);
                 views.setImageViewResource(R.id.imageView5, R.color.green);
+                views.setTextColor(R.id.textView1, Color.WHITE);
             }
 
+            if(sets.getInt("color", 0) == 17){
+                views.setImageViewResource(R.id.imageView, R.color.greenn);
+                views.setImageViewResource(R.id.imageView2, R.color.greenn);
+                views.setImageViewResource(R.id.imageView4, R.color.greenn);
+                views.setImageViewResource(R.id.imageView5, R.color.greenn);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
 
-            if(sets.getInt("color", 1) == 7){
-                views.setTextColor(R.id.textView1, Color.rgb(98, 164, 157));
+            if(sets.getInt("color", 0) == 18){
+                views.setImageViewResource(R.id.imageView, R.color.greennn);
+                views.setImageViewResource(R.id.imageView2, R.color.greennn);
+                views.setImageViewResource(R.id.imageView4, R.color.greennn);
+                views.setImageViewResource(R.id.imageView5, R.color.greennn);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 19){
                 views.setImageViewResource(R.id.imageView, R.color.bluegreen);
                 views.setImageViewResource(R.id.imageView2, R.color.bluegreen);
                 views.setImageViewResource(R.id.imageView4, R.color.bluegreen);
                 views.setImageViewResource(R.id.imageView5, R.color.bluegreen);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 20){
+                views.setImageViewResource(R.id.imageView, R.color.bluegreenn);
+                views.setImageViewResource(R.id.imageView2, R.color.bluegreenn);
+                views.setImageViewResource(R.id.imageView4, R.color.bluegreenn);
+                views.setImageViewResource(R.id.imageView5, R.color.bluegreenn);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 21){
+                views.setImageViewResource(R.id.imageView, R.color.navy);
+                views.setImageViewResource(R.id.imageView2, R.color.navy);
+                views.setImageViewResource(R.id.imageView4, R.color.navy);
+                views.setImageViewResource(R.id.imageView5, R.color.navy);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 22){
+                views.setImageViewResource(R.id.imageView, R.color.navyy);
+                views.setImageViewResource(R.id.imageView2, R.color.navyy);
+                views.setImageViewResource(R.id.imageView4, R.color.navyy);
+                views.setImageViewResource(R.id.imageView5, R.color.navyy);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 23){
+                views.setImageViewResource(R.id.imageView, R.color.darkblue);
+                views.setImageViewResource(R.id.imageView2, R.color.darkblue);
+                views.setImageViewResource(R.id.imageView4, R.color.darkblue);
+                views.setImageViewResource(R.id.imageView5, R.color.darkblue);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 24){
+                views.setImageViewResource(R.id.imageView, R.color.blue);
+                views.setImageViewResource(R.id.imageView2, R.color.blue);
+                views.setImageViewResource(R.id.imageView4, R.color.blue);
+                views.setImageViewResource(R.id.imageView5, R.color.blue);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 25){
+                views.setImageViewResource(R.id.imageView, R.color.bluee);
+                views.setImageViewResource(R.id.imageView2, R.color.bluee);
+                views.setImageViewResource(R.id.imageView4, R.color.bluee);
+                views.setImageViewResource(R.id.imageView5, R.color.bluee);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 26){
+                views.setImageViewResource(R.id.imageView, R.color.violet);
+                views.setImageViewResource(R.id.imageView2, R.color.violet);
+                views.setImageViewResource(R.id.imageView4, R.color.violet);
+                views.setImageViewResource(R.id.imageView5, R.color.violet);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 27){
+                views.setImageViewResource(R.id.imageView, R.color.violett);
+                views.setImageViewResource(R.id.imageView2, R.color.violett);
+                views.setImageViewResource(R.id.imageView4, R.color.violett);
+                views.setImageViewResource(R.id.imageView5, R.color.violett);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 28){
+                views.setImageViewResource(R.id.imageView, R.color.violettt);
+                views.setImageViewResource(R.id.imageView2, R.color.violettt);
+                views.setImageViewResource(R.id.imageView4, R.color.violettt);
+                views.setImageViewResource(R.id.imageView5, R.color.violettt);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 29){
+                views.setImageViewResource(R.id.imageView, R.color.violetttt);
+                views.setImageViewResource(R.id.imageView2, R.color.violetttt);
+                views.setImageViewResource(R.id.imageView4, R.color.violetttt);
+                views.setImageViewResource(R.id.imageView5, R.color.violetttt);
+                views.setTextColor(R.id.textView1, Color.WHITE);
+            }
+
+            if(sets.getInt("color", 0) == 30){
+                views.setImageViewResource(R.id.imageView, R.color.violettttt);
+                views.setImageViewResource(R.id.imageView2, R.color.violettttt);
+                views.setImageViewResource(R.id.imageView4, R.color.violettttt);
+                views.setImageViewResource(R.id.imageView5, R.color.violettttt);
+                views.setTextColor(R.id.textView1, Color.WHITE);
             }
 
             views.setTextColor(R.id.aa, Color.argb(65, 67, 70, 90));
