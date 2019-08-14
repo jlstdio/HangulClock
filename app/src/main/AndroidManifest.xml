@@ -27,6 +27,11 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/app_id"/>
+
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme">
@@ -146,12 +151,6 @@
         <activity
             android:name=".Service.PopupActivity"
             android:theme="@android:style/Theme.Dialog" />
-
-        <activity
-            android:name="com.google.android.gms.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:theme="@android:style/Theme.Translucent" />
-
 
     </application>
 

@@ -17,8 +17,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.ads.mediation.admob.AdMobAdapter;
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -40,11 +43,11 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
 {
-	DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+	DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
-	DatabaseReference download = rootRef.child("downloads");
-	DatabaseReference version = rootRef.child("version");
-	DatabaseReference notice = rootRef.child("notice");
+	DatabaseReference download = databaseReference.child("downloads");
+	DatabaseReference version = databaseReference.child("version");
+	DatabaseReference notice = databaseReference.child("notice");
 
 	TextView mversion;
 	TextView mdownloads;
@@ -74,11 +77,11 @@ public class MainActivity extends AppCompatActivity
 	double longitude, latitude = 0;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
 
-        sentence = findViewById(R.id.sentence);
+		sentence = findViewById(R.id.sentence);
 
 		sets = getSharedPreferences("usersets", Activity.MODE_PRIVATE); //MainActivity가 꺼져도 NewAppWidget에서 값을 받아 올 수 있도록 SharedPreference를 사용하였습니다
 		sentence.setText(sets.getString("title", "설정이 필요합니다"));
@@ -87,21 +90,22 @@ public class MainActivity extends AppCompatActivity
 
 		weathersaved = sets.getString("weatherurl", "날씨 설정이 필요합니다");
 
-		txtText = (TextView)findViewById(R.id.txtText);
+		txtText = (TextView) findViewById(R.id.txtText);
 
 		new ReceiveShortWeather().execute();
 
-		if(str.equals("**weather**")){
+		if (str.equals("**weather**")) {
 			sentence.setText(data);
 		}
 
-		weathertext = (TextView)findViewById(R.id.weather);
+		weathertext = (TextView) findViewById(R.id.weather);
 
-		mversion = (TextView)findViewById(R.id.version);
-		mdownloads = (TextView)findViewById(R.id.download);
+		mversion = (TextView) findViewById(R.id.version);
+		mdownloads = (TextView) findViewById(R.id.download);
 
-		mAdView = (AdView) findViewById(R.id.adView);
+		//mAdView = (AdView) findViewById(R.id.adView);
 
+		//TODO not working do it again
 		AdView adView = new AdView(this);
 		adView.setAdSize(AdSize.BANNER);
 		adView.setAdUnitId("ca-app-pub-8081631582008293/5576438546");
@@ -113,7 +117,7 @@ public class MainActivity extends AppCompatActivity
 			isWhiteListing = pm.isIgnoringBatteryOptimizations(getPackageName());
 		}
 
-		if(!isWhiteListing){
+		if (!isWhiteListing) {
 			AlertDialog.Builder setdialog = new AlertDialog.Builder(MainActivity.this);
 			setdialog.setTitle("추가 설정이 필요합니다.")
 					.setMessage("어플을 문제없이 사용하기 위해서는 해당 어플을 \"배터리 사용량 최적화\" 목록에서 \"제외\"해야 합니다. 설정화면으로 이동하시겠습니까?")
@@ -136,6 +140,8 @@ public class MainActivity extends AppCompatActivity
 			Intent intent = new Intent(this, PopupActivity.class);
 			startActivity(intent);
 		*/
+
+		adviewinit();
 	}
 	
 	public void setting(View v){
@@ -199,7 +205,7 @@ public class MainActivity extends AppCompatActivity
 			public void onDataChange(DataSnapshot dataSnapshot) {
 				String text = dataSnapshot.getValue(String.class);
 
-				if(text.equals("3.1"))
+				if(text.equals("3.2.1"))
 					mversion.setText("현재 최신버전입니다");
 
 				else
@@ -317,6 +323,17 @@ public class MainActivity extends AppCompatActivity
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public void adviewinit(){
+		MobileAds.initialize(this, getString(R.string.ad_id));
+		AdView mAdView = findViewById(R.id.adView);
+		Bundle extras = new Bundle();
+		extras.putString("max_ad_content_rating", "G"); // 앱이 3세 이상 사용가능이라면 광고레벨을 설정해줘야 한다
+		AdRequest adRequest = new AdRequest.Builder()
+				.addNetworkExtrasBundle(AdMobAdapter.class, extras)
+				.build();
+		mAdView.loadAd(adRequest);
 	}
 
 }

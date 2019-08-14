@@ -7,6 +7,10 @@
     <string name="unlock_unlocked">Unlocked</string>
     <string name="unlock_thumb">Move this thumb</string>
 
+    <string name="ad_id">ca-app-pub-8081631582008293/5576438546</string>
+    <string name="app_id">ca-app-pub-8081631582008293~8449303451</string>
+    <string name="ad_id_test">ca-app-pub-3940256099942544/6300978111</string>
+
     <string name="permission_accessibility_setting_description">"Turn on and it locks all soft key including HOME, RECENTS, BACK, MENU buttons.
 
 You may be warned about potential privacy risk, that's just a regular informative warning for any accessibility service. We promise NEVER EVER collecting your personal information in this accessibility service."</string>

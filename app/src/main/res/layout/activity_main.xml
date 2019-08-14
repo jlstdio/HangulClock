@@ -893,7 +893,7 @@
 						android:layout_height="wrap_content"
 						android:layout_marginLeft="3dp"
 						android:layout_marginTop="5dp"
-						android:text="초반 코드 개선 : Yongmin Yoo(성보고)"
+						android:text="초반 코드 개선 : Yongmin Yoo(중앙대)"
 						android:textColor="@color/black" />
 
 					<TextView
