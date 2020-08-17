@@ -3,7 +3,7 @@ package com.leejoonhee.hangulclockforandroid.Service;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
@@ -31,12 +31,6 @@ public class SentenceActivity extends AppCompatActivity {
 
         SharedPreferences.Editor editor = sets.edit();
         editor.putString("title", word); //ID가"color"인 sharedpreference에 정수 "1"를 저장합니다
-        editor.commit();
-    }
-
-    public void weatheruse(View v) {
-        SharedPreferences.Editor editor = sets.edit();
-        editor.putString("title", "**weather**");
         editor.commit();
     }
 }

@@ -32,6 +32,32 @@
         android:textSize="22dp"/>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:onClick="frameColorClicked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundwhite"
+            android:text="테두리 색"
+            android:textColor="@color/lightblack"/>
+
+        <Button
+            android:visibility="gone"
+            android:onClick="sentenceColorClicked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundwhite"
+            android:layout_marginLeft="20dp"
+            android:text="문장 색상"
+            android:textColor="@color/lightblack"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_marginRight="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginBottom="5dp"
@@ -61,7 +87,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="setwhite"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
@@ -69,7 +95,7 @@
                     app:cardCornerRadius="20dp"
                     app:cardBackgroundColor="@color/white">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -77,7 +103,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="setblack"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
@@ -85,7 +111,7 @@
                     app:cardCornerRadius="20dp"
                     app:cardBackgroundColor="@color/black">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>`
 
             <LinearLayout
@@ -93,7 +119,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="claret"
                     app:cardBackgroundColor="@color/claret"
                     android:layout_width="40dp"
@@ -101,7 +127,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -109,7 +135,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="clarett"
                     app:cardBackgroundColor="@color/clarett"
                     android:layout_width="40dp"
@@ -117,7 +143,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -125,7 +151,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="clarettt"
                     app:cardBackgroundColor="@color/clarettt"
                     android:layout_width="40dp"
@@ -133,7 +159,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
         </LinearLayout>
@@ -149,7 +175,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="red"
                     app:cardBackgroundColor="@color/red"
                     android:layout_width="40dp"
@@ -157,7 +183,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -165,7 +191,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="redd"
                     app:cardBackgroundColor="@color/redd"
                     android:layout_width="40dp"
@@ -173,7 +199,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -181,7 +207,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="reddd"
                     app:cardBackgroundColor="@color/reddd"
                     android:layout_width="40dp"
@@ -189,7 +215,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -197,7 +223,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="pink"
                     app:cardBackgroundColor="@color/pink"
                     android:layout_width="40dp"
@@ -205,7 +231,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -213,7 +239,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="pinkk"
                     app:cardBackgroundColor="@color/pinkk"
                     android:layout_width="40dp"
@@ -221,7 +247,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
         </LinearLayout>
@@ -237,7 +263,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="orange"
                     app:cardBackgroundColor="@color/orange"
                     android:layout_width="40dp"
@@ -245,7 +271,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -253,7 +279,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="orangee"
                     app:cardBackgroundColor="@color/orangee"
                     android:layout_width="40dp"
@@ -261,7 +287,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -269,7 +295,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="orangeee"
                     app:cardBackgroundColor="@color/orangeee"
                     android:layout_width="40dp"
@@ -277,7 +303,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -285,7 +311,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="yellow"
                     app:cardBackgroundColor="@color/yellow"
                     android:layout_width="40dp"
@@ -293,7 +319,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -301,7 +327,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="yelloww"
                     app:cardBackgroundColor="@color/yelloww"
                     android:layout_width="40dp"
@@ -309,7 +335,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
         </LinearLayout>
@@ -325,7 +351,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="green"
                     app:cardBackgroundColor="@color/green"
                     android:layout_width="40dp"
@@ -333,7 +359,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -341,7 +367,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="greenn"
                     app:cardBackgroundColor="@color/greenn"
                     android:layout_width="40dp"
@@ -349,7 +375,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -357,7 +383,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="greennn"
                     app:cardBackgroundColor="@color/greennn"
                     android:layout_width="40dp"
@@ -365,7 +391,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -373,7 +399,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="bluegreen"
                     app:cardBackgroundColor="@color/bluegreen"
                     android:layout_width="40dp"
@@ -381,7 +407,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -389,7 +415,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="bluegreenn"
                     app:cardBackgroundColor="@color/bluegreenn"
                     android:layout_width="40dp"
@@ -397,7 +423,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
         </LinearLayout>
@@ -413,7 +439,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="navy"
                     app:cardBackgroundColor="@color/navy"
                     android:layout_width="40dp"
@@ -421,7 +447,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -429,7 +455,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="navyy"
                     app:cardBackgroundColor="@color/navyy"
                     android:layout_width="40dp"
@@ -437,7 +463,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -445,7 +471,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="darkblue"
                     app:cardBackgroundColor="@color/darkblue"
                     android:layout_width="40dp"
@@ -453,7 +479,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -461,7 +487,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="blue"
                     app:cardBackgroundColor="@color/blue"
                     android:layout_width="40dp"
@@ -469,7 +495,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -477,7 +503,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="bluee"
                     app:cardBackgroundColor="@color/bluee"
                     android:layout_width="40dp"
@@ -485,7 +511,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
         </LinearLayout>
@@ -501,7 +527,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="violet"
                     app:cardBackgroundColor="@color/violet"
                     android:layout_width="40dp"
@@ -509,7 +535,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -517,7 +543,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="violett"
                     app:cardBackgroundColor="@color/violett"
                     android:layout_width="40dp"
@@ -525,7 +551,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -533,7 +559,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="violettt"
                     app:cardBackgroundColor="@color/violettt"
                     android:layout_width="40dp"
@@ -541,7 +567,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -549,7 +575,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="violetttt"
                     app:cardBackgroundColor="@color/violetttt"
                     android:layout_width="40dp"
@@ -557,7 +583,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -565,7 +591,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:onClick="violettttt"
                     app:cardBackgroundColor="@color/violettttt"
                     android:layout_width="40dp"
@@ -573,7 +599,7 @@
                     android:layout_margin="3dp"
                     app:cardCornerRadius="20dp">
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
         </LinearLayout>

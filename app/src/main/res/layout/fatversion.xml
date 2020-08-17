@@ -1,13 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
-    android:layout_gravity="center"
-    android:gravity="center"
-    android:resizeMode="horizontal|vertical"
-    android:widgetCategory="home_screen">
+    android:gravity="center">
 
     <RelativeLayout
         android:layout_width="140dp"
@@ -540,7 +537,7 @@
     <TextView
         android:layout_marginLeft="10dp"
         android:gravity="center"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView1"
         android:text="언젠가는 빛이 될 당신"

@@ -11,17 +11,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.provider.Settings;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.ads.mediation.admob.AdMobAdapter;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,17 +23,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.leejoonhee.hangulclockforandroid.Service.HelpActivity;
 import com.leejoonhee.hangulclockforandroid.Service.SettingActivity;
-import com.leejoonhee.hangulclockforandroid.Service.Weather.WeatherInfo;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
-
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserFactory;
-
-import java.io.StringReader;
-import java.net.URL;
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -55,26 +38,9 @@ public class MainActivity extends AppCompatActivity
 
 	static SharedPreferences sets;
 
-	static public String weathersaved = "No data";
-
-	static TextView weathertext;
-
 	static String data = "";
 
 	TextView txtText;
-
-	AdView mAdView;
-
-	double RE = 6371.00877; // 지구 반경(km)
-	double GRID = 5.0; // 격자 간격(km)
-	double SLAT1 = 30.0; // 투영 위도1(degree)
-	double SLAT2 = 60.0; // 투영 위도2(degree)
-	double OLON = 126.0; // 기준점 경도(degree)
-	double OLAT = 38.0; // 기준점 위도(degree)
-	double XO = 43; // 기준점 X좌표(GRID)
-	double YO = 136; // 기1준점 Y좌표(GRID)
-
-	double longitude, latitude = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,28 +54,14 @@ public class MainActivity extends AppCompatActivity
 
 		String str = sets.getString("title", "설정이필요합니다");
 
-		weathersaved = sets.getString("weatherurl", "날씨 설정이 필요합니다");
-
 		txtText = (TextView) findViewById(R.id.txtText);
-
-		new ReceiveShortWeather().execute();
 
 		if (str.equals("**weather**")) {
 			sentence.setText(data);
 		}
 
-		weathertext = (TextView) findViewById(R.id.weather);
-
 		mversion = (TextView) findViewById(R.id.version);
 		mdownloads = (TextView) findViewById(R.id.download);
-
-		//mAdView = (AdView) findViewById(R.id.adView);
-
-		//TODO not working do it again
-		AdView adView = new AdView(this);
-		adView.setAdSize(AdSize.BANNER);
-		adView.setAdUnitId("ca-app-pub-8081631582008293/5576438546");
-
 
 		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 		boolean isWhiteListing = false;
@@ -130,18 +82,12 @@ public class MainActivity extends AppCompatActivity
 					.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
-							Toast.makeText(MainActivity.this, "설정을 취소했습니다.", Toast.LENGTH_SHORT).show();
+							Toast.makeText(MainActivity.this, "설정을 취소했습니다", Toast.LENGTH_SHORT).show();
 						}
 					})
 					.create()
 					.show();
 		}
-		/*
-			Intent intent = new Intent(this, PopupActivity.class);
-			startActivity(intent);
-		*/
-
-		adviewinit();
 	}
 	
 	public void setting(View v){
@@ -205,7 +151,7 @@ public class MainActivity extends AppCompatActivity
 			public void onDataChange(DataSnapshot dataSnapshot) {
 				String text = dataSnapshot.getValue(String.class);
 
-				if(text.equals("3.2.1"))
+				if(text.equals("3.2.2"))//Last Modified : Dec. 22. 2019
 					mversion.setText("현재 최신버전입니다");
 
 				else
@@ -219,121 +165,4 @@ public class MainActivity extends AppCompatActivity
 		});
 
 	}
-
-	public static class ReceiveShortWeather extends AsyncTask<URL, Integer, Long> {
-
-		ArrayList<WeatherInfo> shortWeathers = new ArrayList<WeatherInfo>();
-
-		protected Long doInBackground(URL... urls) {
-
-			String url = sets.getString("weatherurl", "http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=1159068000");
-
-			OkHttpClient client = new OkHttpClient();
-
-			Request request = new Request.Builder()
-					.url(url)
-					.build();
-
-			Response response = null;
-
-			try {
-				response = client.newCall(request).execute();
-				parseXML(response.body().string());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			return null;
-		}
-
-		public void onPostExecute(Long result) {
-
-			data = shortWeathers.get(0).getTemp() + "도 . " +
-					shortWeathers.get(0).getWfKor() + " . 강수량 " +
-					shortWeathers.get(0).getPop();
-
-			weathertext.setText(data);
-			weathersaved = data;
-		}
-
-		void parseXML(String xml) {
-			try {
-				String tagName = "";
-				boolean onHour = false;
-				boolean onDay = false;
-				boolean onTem = false;
-				boolean onWfKor = false;
-				boolean onPop = false;
-				boolean onEnd = false;
-				boolean isItemTag1 = false;
-				int i = 0;
-
-				XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-				XmlPullParser parser = factory.newPullParser();
-
-				parser.setInput(new StringReader(xml));
-
-				int eventType = parser.getEventType();
-
-				while (eventType != XmlPullParser.END_DOCUMENT) {
-					if (eventType == XmlPullParser.START_TAG) {
-						tagName = parser.getName();
-						if (tagName.equals("data")) {
-							shortWeathers.add(new WeatherInfo());
-							onEnd = false;
-							isItemTag1 = true;
-						}
-					} else if (eventType == XmlPullParser.TEXT && isItemTag1) {
-						if (tagName.equals("hour") && !onHour) {
-							shortWeathers.get(i).setHour(parser.getText());
-							onHour = true;
-						}
-						if (tagName.equals("day") && !onDay) {
-							shortWeathers.get(i).setDay(parser.getText());
-							onDay = true;
-						}
-						if (tagName.equals("temp") && !onTem) {
-							shortWeathers.get(i).setTemp(parser.getText());
-							onTem = true;
-						}
-						if (tagName.equals("wfKor") && !onWfKor) {
-							shortWeathers.get(i).setWfKor(parser.getText());
-							onWfKor = true;
-						}
-						if (tagName.equals("pop") && !onPop) {
-							shortWeathers.get(i).setPop(parser.getText());
-							onPop = true;
-						}
-					} else if (eventType == XmlPullParser.END_TAG) {
-						if (tagName.equals("s06") && onEnd == false) {
-							i++;
-							onHour = false;
-							onDay = false;
-							onTem = false;
-							onWfKor = false;
-							onPop = false;
-							isItemTag1 = false;
-							onEnd = true;
-						}
-					}
-
-					eventType = parser.next();
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	public void adviewinit(){
-		MobileAds.initialize(this, getString(R.string.ad_id));
-		AdView mAdView = findViewById(R.id.adView);
-		Bundle extras = new Bundle();
-		extras.putString("max_ad_content_rating", "G"); // 앱이 3세 이상 사용가능이라면 광고레벨을 설정해줘야 한다
-		AdRequest adRequest = new AdRequest.Builder()
-				.addNetworkExtrasBundle(AdMobAdapter.class, extras)
-				.build();
-		mAdView.loadAd(adRequest);
-	}
-
 }
